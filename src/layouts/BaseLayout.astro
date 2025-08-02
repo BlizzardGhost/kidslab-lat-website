@@ -1,0 +1,64 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
+const { lang } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+ <script type="module" src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+ <!-- Swiper CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://use.typekit.net/bct8okz.css" rel="stylesheet">
+    <style global>
+    @import '/src/styles/global.css';
+    </style>
+  <title>Kidslab — A Creative Tech Lab for the Next Generation</title>
+  <meta name="description" content="Where creativity meets code. Kidslab is the first AI-focused creative tech academy for kids in Latin America." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Optional social preview -->
+  <meta property="og:title" content="Kidslab" />
+  <meta property="og:description" content="Creative tech for kids in Latin America. Built with empathy and code." />
+  <meta property="og:image" content="/assets/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white text-gray-900">
+    <LanguageSwitcher currentLang={lang} />
+    <Header lang={lang} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.testimonial-slider', {
+      loop: true,
+      autoplay: { delay: 6000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      slidesPerView: 1,
+      spaceBetween: 24,
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  });
+</script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+# node stuff
+node_modules/
+npm-debug.log*
+
+# build output
+dist/
+.build/
+.netlify/
+
+# system files
+.DS_Store
+
+# Astro cache
+.astro/

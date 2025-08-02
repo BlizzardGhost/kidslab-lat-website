@@ -1,0 +1,8 @@
+---
+const { currentLang } = Astro.props;
+---
+
+<div class="absolute top-4 right-4">
+  <a href="/en" class={`mr-2 ${currentLang === 'en' ? 'font-bold' : ''}`}>EN</a>
+  <a href="/es" class={`${currentLang === 'es' ? 'font-bold' : ''}`}>ES</a>
+</div>
