@@ -14,16 +14,18 @@ module.exports = {
         'kidslab-celeste': '#3ed4e0',
       },
       animation: {
-        marquee: 'marquee 30s linear infinite',
+        'float-up': 'floatUp 6s ease-in-out infinite',
+        'marquee': 'marquee 25s linear infinite',
       },
       keyframes: {
+        floatUp: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
         },
-      },
-      animation: {
-        marquee: 'marquee 25s linear infinite',
       },
     },
   },
