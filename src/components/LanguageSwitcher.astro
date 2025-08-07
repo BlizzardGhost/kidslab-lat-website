@@ -1,8 +1,23 @@
 ---
-const { currentLang } = Astro.props;
+const { lang = 'en' } = Astro.props;
 ---
 
-<div class="absolute top-4 right-4">
-  <a href="/en" class={`mr-2 ${currentLang === 'en' ? 'font-bold' : ''}`}>EN</a>
-  <a href="/es" class={`${currentLang === 'es' ? 'font-bold' : ''}`}>ES</a>
+<!-- Language Toggle Switch -->
+<div 
+  x-data="{ lang: window.location.pathname.includes('/es') ? 'es' : 'en' }" 
+  @click="lang = lang === 'en' ? 'es' : 'en'; window.location.href = '/' + lang"
+  class="relative flex items-center w-16 h-8 bg-kidslab-morado/20 rounded-full cursor-pointer transition-all duration-300 ease-in-out shadow-inner"
+  title="Change language"
+>
+  <!-- Switch Ball -->
+  <div 
+    class="absolute left-1 top-1 w-6 h-6 rounded-full bg-kidslab-morado shadow-md transition-transform duration-300 ease-in-out"
+    :class="lang === 'en' ? 'translate-x-0' : 'translate-x-8'"
+  ></div>
+
+  <!-- EN / ES Labels -->
+  <div class="flex justify-between items-center w-full px-2 text-xs font-semibold text-kidslab-morado z-10">
+    <span :class="{ 'opacity-100': lang === 'en', 'opacity-50': lang !== 'en' }">EN</span>
+    <span :class="{ 'opacity-100': lang === 'es', 'opacity-50': lang !== 'es' }">ES</span>
+  </div>
 </div>

@@ -12,6 +12,7 @@ module.exports = {
         'kidslab-naranja': '#ff7f50',
         'kidslab-amarillo': '#ffcf33',
         'kidslab-celeste': '#3ed4e0',
+        'kidslab-morado': '#8c5fc2',
       },
       animation: {
         'float-up': 'floatUp 6s ease-in-out infinite',

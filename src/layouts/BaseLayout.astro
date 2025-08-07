@@ -1,7 +1,6 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import "/src/styles/global.css";
 
 const { lang } = Astro.props;
@@ -34,7 +33,6 @@ const { lang } = Astro.props;
   <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900">
-    <LanguageSwitcher currentLang={lang} />
     <Header lang={lang} />
     <main class="flex-1">
       <slot />
@@ -57,7 +55,7 @@ const { lang } = Astro.props;
   });
 </script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
   </body>
 </html>

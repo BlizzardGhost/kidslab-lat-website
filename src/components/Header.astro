@@ -1,5 +1,5 @@
 ---
-const { lang = 'en' } = Astro.props; // default to 'en' if not provided
+const { lang = 'en' } = Astro.props;
 
 const nav = {
   en: ['Home', 'About', 'Courses'],
@@ -7,43 +7,34 @@ const nav = {
 };
 
 const navItems = nav[lang] ?? [];
+
+import LanguageSwitcher from '../components/LanguageSwitcher.astro'
+
 ---
 
+<header class="w-full sticky top-8 z-50">
+  <div class="mx-auto max-w-6xl bg-white bg-opacity-75 backdrop-blur-md rounded-full px-6 py-2 flex items-center justify-between border border-gray-200 shadow-md">
 
-<header class="bg-white bg-opacity-80 backdrop-blur-md border-b border-gray-200 py-2 md:py-3">
-  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
-    
     <!-- Logo -->
     <a href={lang === 'es' ? '/es' : '/en'} class="flex items-center">
-      <img src="/assets/branding/logo.svg" alt="Kidslab logo" class="h-10 md:h-12 w-auto" />
+      <img src="/assets/branding/logo.svg" alt="Kidslab logo" class="h-8 w-auto" />
     </a>
 
-    <!-- Navigation (centered on desktop) -->
-    <nav class="flex space-x-6 md:space-x-8 text-sm md:text-base">
-    {navItems.map(item => (
+    <!-- Nav Links -->
+    <nav class="hidden md:flex items-center space-x-8 text-sm md:text-base">
+      {navItems.map(item => (
         <a href="#" class="text-gray-700 hover:text-kidslab-naranja font-medium">{item}</a>
       ))}
     </nav>
 
-    <!-- Language + WhatsApp -->
-    <div class="flex items-center space-x-4">
-      <!-- Language switch -->
-      <div class="flex items-center space-x-1 text-sm">
-        <a href="/es" class={`hover:underline ${lang === 'es' ? 'font-bold text-kidslab-naranja' : 'text-gray-500'}`}>ES</a>
-        <span class="text-gray-400">|</span>
-        <a href="/en" class={`hover:underline ${lang === 'en' ? 'font-bold text-kidslab-naranja' : 'text-gray-500'}`}>EN</a>
-      </div>
-
-      <!-- WhatsApp CTA -->
-      <a 
-        href="https://wa.me/50378258472?text=Hola!%20Quiero%20más%20información%20sobre%20Kidslab"
-        class="flex items-center space-x-2 bg-kidslab-celeste text-white py-2 px-4 rounded-full hover:bg-kidslab-amarillo transition"
-        target="_blank"
-        rel="noopener"
-      >
-<iconify-icon icon="fa6-brands:whatsapp" width="20" height="20"></iconify-icon>
-        <span>Escríbenos</span>
+    <!-- Right side: phone + lang -->
+    <div class="flex items-center space-x-6 text-sm md:text-base">
+      
+      <!-- Phone -->
+      <a href="https://wa.me/50378258472" target="_blank" class="text-gray-700 hover:text-kidslab-naranja font-semibold">
+        Need help? <span class="text-kidslab-naranja font-bold">+503 7825 8472</span>
       </a>
-    </div>
-  </div>
+
+      <!-- Language -->
+      <LanguageSwitcher lang={lang} />
 </header>
