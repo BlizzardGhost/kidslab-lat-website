@@ -9,32 +9,32 @@ const nav = {
 const navItems = nav[lang] ?? [];
 
 import LanguageSwitcher from '../components/LanguageSwitcher.astro'
-
 ---
 
-<header class="w-full sticky top-8 z-50">
-  <div class="mx-auto max-w-6xl bg-white bg-opacity-75 backdrop-blur-md rounded-full px-6 py-2 flex items-center justify-between border border-gray-200 shadow-md">
+<header class="w-full sticky top-4 md:top-8 z-50">
+  <div class="mx-auto max-w-6xl bg-white bg-opacity-75 backdrop-blur-md rounded-full px-6 py-3 flex flex-col md:flex-row md:items-center md:justify-between border border-gray-200 shadow-md gap-2">
 
     <!-- Logo -->
-    <a href={lang === 'es' ? '/es' : '/en'} class="flex items-center">
-      <img src="/assets/branding/logo.svg" alt="Kidslab logo" class="h-8 w-auto" />
-    </a>
+    <div class="flex justify-center md:justify-start">
+      <a href={lang === 'es' ? '/es' : '/en'} class="flex items-center">
+        <img src="/assets/branding/logo.svg" alt="Kidslab logo" class="h-8 w-auto" />
+      </a>
+    </div>
 
-    <!-- Nav Links -->
+    <!-- Navigation (desktop only) -->
     <nav class="hidden md:flex items-center space-x-8 text-sm md:text-base">
       {navItems.map(item => (
         <a href="#" class="text-gray-700 hover:text-kidslab-naranja font-medium">{item}</a>
       ))}
     </nav>
 
-    <!-- Right side: phone + lang -->
-    <div class="flex items-center space-x-6 text-sm md:text-base">
-      
-      <!-- Phone -->
-      <a href="https://wa.me/50378258472" target="_blank" class="text-gray-700 hover:text-kidslab-naranja font-semibold">
+    <!-- Phone + Language -->
+    <div class="flex justify-center md:justify-end items-center space-x-4 md:space-x-6 text-lg md:text-base">
+      <a href="https://wa.me/50378258472" target="_blank" class="text-gray-700 hover:text-kidslab-naranja font-semibold whitespace-nowrap">
         Need help? <span class="text-kidslab-naranja font-bold">+503 7825 8472</span>
       </a>
-
-      <!-- Language -->
       <LanguageSwitcher lang={lang} />
+    </div>
+
+  </div>
 </header>
