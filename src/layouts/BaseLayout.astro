@@ -3,10 +3,16 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import "/src/styles/global.css";
 
-const { lang } = Astro.props;
+const { lang, title = "Kidslab — A Creative Tech Lab for the Next Generation", description = "Where creativity meets code. Kidslab is the first AI-focused creative tech academy for kids in Latin America.", ogImage = "/assets/social-preview.webp" } = Astro.props;
+
 ---
 
 <html lang={lang}>
+  <title>{title}</title>
+<meta name="description" content={description} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
   <head>
  <script type="module" src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
  <!-- Swiper CDN -->

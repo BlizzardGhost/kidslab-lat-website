@@ -1,0 +1,82 @@
+---
+/* Compact modal form – safe inline script (no hoisting), click-driven */
+---
+
+<div data-whatsapp-form-root>
+  <form data-whatsapp-form
+        class="w-full flex flex-col items-stretch gap-3"
+        aria-label="Reserve your spot via WhatsApp"
+        novalidate>
+    <!-- Name pill -->
+    <input name="name" type="text" required autocomplete="name" placeholder="Your Name"
+           class="w-full rounded-full border border-gray-300 bg-white p-3 px-5
+                  focus:outline-none focus:ring-2 focus:ring-kidslab-celeste" />
+
+    <!-- Country + Phone pill -->
+    <div class="flex gap-2">
+      <select name="countryCode" required aria-label="Country calling code"
+              class="w-24 rounded-full border border-gray-300 bg-white p-3 px-4
+                     focus:outline-none focus:ring-2 focus:ring-kidslab-celeste">
+        <option value="57">🇨🇴 +57</option>
+        <option value="503" selected>🇸🇻 +503</option>
+        <option value="1">🇺🇸 +1</option>
+      </select>
+
+      <input name="phone" type="tel" required inputmode="tel" autocomplete="tel" placeholder="Your Phone"
+             class="flex-1 rounded-full border border-gray-300 bg-white p-3 px-5
+                    focus:outline-none focus:ring-2 focus:ring-kidslab-celeste" />
+    </div>
+
+    <!-- Send button pill (NOT a submit) -->
+    <button type="button" data-send
+            class="w-full rounded-full bg-kidslab-naranja px-6 py-3 font-bold text-white
+                   hover:opacity-95 transition">
+      SEND
+    </button>
+
+    <input type="hidden" name="course" value="ai-robot-friend" />
+  </form>
+</div>
+
+<!-- IMPORTANT: keep this inline so Astro doesn’t hoist it to <head> -->
+<script is:inline>
+  // Bind to THIS component only
+  const root = document.currentScript.previousElementSibling; // the <div data-whatsapp-form-root>
+  const form = root.querySelector('[data-whatsapp-form]');
+  const btn  = root.querySelector('[data-send]');
+
+  // Belt-and-suspenders: never allow native submit
+  form.addEventListener('submit', (e) => e.preventDefault());
+
+  btn.addEventListener('click', () => {
+    const fd = new FormData(form);
+    const name   = (fd.get('name') || '').toString().trim();
+    const code   = (fd.get('countryCode') || '').toString();
+    const phone  = (fd.get('phone') || '').toString().trim();
+    const course = (fd.get('course') || 'ai-robot-friend').toString();
+
+    if (!name || !phone) return;
+
+    // 1) Open WhatsApp immediately (popup-safe)
+    const academyNumber = '50378258472';
+    const message = encodeURIComponent(
+      `Hola! Mi nombre es ${name}. Mi número es +${code} ${phone}. ` +
+      `Estoy interesad@ en los cursos de Kidslab (${course}). ¿Me puedes compartir más información?`
+    );
+    const whatsappUrl = `https://wa.me/${academyNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank', 'noopener');
+
+    // 2) Fire automation webhook (no await)
+    fetch('https://eoj8cb91g0he9hd.m.pipedream.net', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, countryCode: code, phone, course }),
+      keepalive: true
+    }).catch(() => {});
+
+    // 3) Redirect
+    setTimeout(() => {
+      window.location.href = '/en/thank-you';
+    }, 900);
+  });
+</script>

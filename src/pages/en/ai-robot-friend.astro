@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WhatsAppLeadForm from "../../components/WhatsAppLeadForm.astro";
+import ModalWhatsAppLeadForm from "../../components/ModalWhatsAppLeadForm.astro";
+
+const lang = "en";
+const title = "AI Robot Friend — Safe, Guided, and Fun (Teens 13–17) | Kidslab";
+const description = "An 8‑session, live online course where teens (13–17) design their own friendly AI companion — learning to work with AI safely, ethically, and creatively.";
+const ogImage = "/assets/ai-robot-friend-og.jpg"; // swap when you have it
+---
+<BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-kidslab-morado leading-tight">
+            Your Child’s First AI Friend — Safe, Guided, and Fun
+          </h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-800 font-semibold max-w-xl">
+  An 8‑session, live online course where teens (13–17) design their own friendly AI companion — learning to work with AI safely, ethically, and creatively.
+        </p>
+
+
+
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <ModalWhatsAppLeadForm>
+  <!-- Fallback: if JS is disabled, the link still jumps to #get-info -->
+  <a
+    href="#get-info"
+    class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold hover:opacity-95 transition inline-flex items-center gap-2"
+  >
+    <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+    Reserve Your Spot
+  </a>
+</ModalWhatsAppLeadForm>
+            <a href="#parents" class="border-2 border-kidslab-celeste text-kidslab-celeste px-6 py-3 rounded-full font-bold hover:bg-kidslab-celeste hover:text-white transition">
+              Parent Info Session
+            </a>
+          </div>
+
+          <p class="mt-3 text-sm text-gray-600">
+            Small groups (max 8). Hands‑on. Parent‑friendly.
+          </p>
+        </div>
+
+<div class="relative">
+  <img
+    src="/assets/ai-friend-hero.png"
+    alt="Teen smiling with a friendly AI robot buddy, Kidslab style"
+    class="w-full h-auto rounded-2xl shadow-xl"
+    loading="eager"
+    width="1200"
+    height="800"
+  />
+  <div class="pointer-events-none absolute inset-0 -z-10 blur-3xl opacity-30 animate-float-up bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[2rem]"></div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENT REASSURANCE -->
+<section id="parents" class="bg-white py-20 px-6">
+  <!-- Pulpo topper (big, floating) -->
+  <div class="flex justify-center -mt-6 mb-6 pointer-events-none">
+    <img
+      src="/assets/pulpo-ai.png"
+      alt="Pulpo RASS — Kidslab mascot"
+      class="w-28 h-auto md:w-40 lg:w-48 animate-float-up drop-shadow"
+      aria-hidden="true"
+    />
+  </div>
+
+  <!-- Headline (mirrors Find Your Creative Path heading style) -->
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    <h2 class="text-3xl md:text-5xl font-lemon text-kidslab-naranja font-bold mb-4 flex items-center justify-center gap-2">
+      <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja text-2xl md:text-3xl"></iconify-icon>
+      AI that empowers — not replaces — human connection
+    </h2>
+    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+      Built for parents first: safety, ethics, creativity, and real‑world skills — all guided by caring instructors.
+    </p>
+  </div>
+
+  <!-- Card grid (clean, no borders; soft shadows + hover lift) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    <!-- Safe & supervised -->
+    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+      <iconify-icon icon="ph:shield-check" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+      <h3 class="font-bold text-lg mb-2">Safe &amp; supervised</h3>
+      <p class="text-gray-600 text-sm">Live instructors, clear guardrails.</p>
+    </div>
+
+    <!-- Ethical by design -->
+    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+      <iconify-icon icon="ph:hand-heart" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+      <h3 class="font-bold text-lg mb-2">Ethical by design</h3>
+      <p class="text-gray-600 text-sm">AI as a helper, never a shortcut.</p>
+    </div>
+
+    <!-- Creative confidence -->
+    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+      <iconify-icon icon="ph:sparkle" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+      <h3 class="font-bold text-lg mb-2">Creative confidence</h3>
+      <p class="text-gray-600 text-sm">Stories, projects, and positive expression.</p>
+    </div>
+
+    <!-- Future‑ready skills -->
+    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+      <iconify-icon icon="ph:rocket-launch" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+      <h3 class="font-bold text-lg mb-2">Future‑ready skills</h3>
+      <p class="text-gray-600 text-sm">Digital literacy for school and life.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- HOW IT WORKS (8 SESSIONS) — card grid with Iconify -->
+<section class="bg-purple-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold text-kidslab-morado font-display text-center">
+      From curiosity to creation — step by step
+    </h2>
+
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 1. Meet Your AI -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">1</span>
+        <iconify-icon icon="solar:robot-bold" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Meet Your AI</h3>
+        <p class="text-gray-700 text-sm">Name, voice, and how it “thinks.”</p>
+      </div>
+
+      <!-- 2. Build Trust -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">2</span>
+        <iconify-icon icon="ph:handshake" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Build Trust</h3>
+        <p class="text-gray-700 text-sm">Safe, responsible conversations.</p>
+      </div>
+
+      <!-- 3. Express Yourself -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">3</span>
+        <iconify-icon icon="ph:paint-brush-broad" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Express Yourself</h3>
+        <p class="text-gray-700 text-sm">Write, imagine, and create together.</p>
+      </div>
+
+      <!-- 4. Get Organized -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">4</span>
+        <iconify-icon icon="ph:calendar-check" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Get Organized</h3>
+        <p class="text-gray-700 text-sm">Planning and problem‑solving with your AI.</p>
+      </div>
+
+      <!-- 5. Learn New Skills -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">5</span>
+        <iconify-icon icon="ph:lightbulb" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Learn New Skills</h3>
+        <p class="text-gray-700 text-sm">Research, creative prompts, mini‑labs.</p>
+      </div>
+
+      <!-- 6. Make It Yours -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">6</span>
+        <iconify-icon icon="ph:sliders-horizontal" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Make It Yours</h3>
+        <p class="text-gray-700 text-sm">Personalize tone, role, and routines.</p>
+      </div>
+
+      <!-- 7. Work Together -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">7</span>
+        <iconify-icon icon="ph:users-three" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Work Together</h3>
+        <p class="text-gray-700 text-sm">A small creative project (show your voice).</p>
+      </div>
+
+      <!-- 8. Show & Tell -->
+      <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">8</span>
+        <iconify-icon icon="ph:megaphone-simple" class="text-5xl text-kidslab-morado mb-4 transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+        <h3 class="font-bold text-lg mb-1">Show &amp; Tell</h3>
+        <p class="text-gray-700 text-sm">Family showcase — “My AI in 30 days.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- BENEFITS -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display tracking-tight">For Parents</h3>
+        <ul class="mt-4 space-y-2 leading-relaxed">
+          <li>Peace of mind with supervised, ethical AI.</li>
+          <li>Practical digital literacy they’ll actually use.</li>
+          <li>Healthy tech habits you can support.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display tracking-tight">For Teens</h3>
+        <ul class="mt-4 space-y-2 leading-relaxed">
+          <li>Create something that’s truly theirs.</li>
+          <li>Express themselves with a helpful AI friend.</li>
+          <li>Build creativity, problem‑solving, and communication.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENT NOTE -->
+  <section class="bg-orange-50 border-t border-orange-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-orange-700 font-display">
+  “I want my child to grow up with AI as an ally, not a threat.”
+</h3>
+<p class="mt-3 text-gray-800">
+  As a parent — and lifelong tech educator — I built this course so teens can learn to use AI with courage and care.
+  We guide every step, and you’ll see exactly how and why it helps.
+  <span class="block mt-2 font-semibold">— Boris Quijano, Kidslab</span>
+</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA (dynamic with Pulpo + icon accents) -->
+<section class="bg-gradient-to-b from-purple-50 to-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <div class="grid md:grid-cols-[1.1fr_.9fr] items-center gap-10">
+      <!-- Copy + CTA -->
+      <div class="text-center md:text-left">
+        <h2 class="text-3xl md:text-4xl font-bold text-kidslab-morado font-display tracking-tight">
+          Limited seats — only 8 students per group
+        </h2>
+        <p class="mt-3 text-gray-800">
+          Reserve your child’s place today and help them build an AI‑ready future.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+          <ModalWhatsAppLeadForm>
+  <!-- Fallback: if JS is disabled, the link still jumps to #get-info -->
+  <a
+    href="#get-info"
+    class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold hover:opacity-95 transition inline-flex items-center gap-2"
+  >
+    <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+    Reserve Your Spot
+  </a>
+</ModalWhatsAppLeadForm>
+<p class="mt-2 text-xs text-gray-500">Opens a quick WhatsApp sign‑up form</p>
+          <a
+            href="#parents"
+            class="inline-flex items-center gap-2 border-2 border-kidslab-celeste text-kidslab-celeste px-6 py-3 rounded-full font-bold hover:bg-kidslab-celeste hover:text-white transition"
+          >
+            <iconify-icon icon="ph:chat-circle-dots" class="text-kidslab-celeste text-xl md:text-lg"></iconify-icon>
+            Parent Info
+          </a>
+        </div>
+
+        <!-- subtle icon accents under CTAs -->
+        <div class="mt-4 flex items-center gap-4 justify-center md:justify-start text-kidslab-amarillo/80">
+          <iconify-icon icon="ph:sparkle" class="text-2xl"></iconify-icon>
+          <span class="text-sm text-gray-600">Hands‑on • Guided • Parent‑friendly</span>
+          <iconify-icon icon="ph:sparkle" class="text-2xl"></iconify-icon>
+        </div>
+      </div>
+
+      <!-- Pulpo visual -->
+      <div class="relative flex justify-center md:justify-end">
+        <!-- floating bg glow -->
+        <div class="absolute -inset-4 -z-10 blur-3xl opacity-30 animate-float-up bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[2rem]"></div>
+
+        <div class="relative">
+          <img
+            src="/assets/pulpo-ai.png"
+            alt="Pulpo RASS cheering you on to reserve your spot"
+            class="w-40 sm:w-48 md:w-56 lg:w-64 h-auto animate-float-up drop-shadow"
+            loading="lazy"
+          />
+          <!-- chat bubbles near Pulpo -->
+          <div class="absolute -top-3 -right-3 flex gap-2 text-kidslab-celeste/90">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</BaseLayout>
