@@ -1,10 +1,515 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import WhatsAppLeadForm from '../../components/WhatsAppLeadForm.astro';
 ---
 
 <BaseLayout lang="es">
-  <section class="text-center py-20">
-    <h2 class="text-4xl font-bold mb-4">Bienvenido a Kidslab.lat</h2>
-    <p class="text-lg text-gray-600">El lugar donde los niños construyen futuros éticos y creativos con IA y tecnología.</p>
-  </section>
+  <main class="bg-white text-gray-800 font-sans">
+    <section class="w-full overflow-hidden bg-white">
+      <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-6 md:py-10">
+        <!-- Left Text Section -->
+        <div class="w-full md:w-1/3 mb-8 md:mb-0 md:pr-8">
+          <h1 class="font-lemon text-4xl md:text-3xl text-kidslab-naranja leading-tight mb-4">
+            Aprendizaje humano‑primero<br /><p class="text-7xl md:text-6xl">con IA</p>
+          </h1>
+          <p class="text-base md:text-lg text-gray-800 mb-6">
+            Un laboratorio seguro y alegre donde niñas y niños aprenden a usar la tecnología con empatía, creatividad y propósito.
+            Nuestros cursos son <span class="font-semibold">impulsados por IA</span> y guiados por mentores humanos — hechos en LatAm para familias de todas partes.
+          </p>
+          <a href="/es#get-info" class="inline-block bg-kidslab-naranja text-white font-bold py-3 px-6 rounded-full hover:bg-kidslab-amarillo transition">
+            Agenda una llamada gratuita
+          </a>
+        </div>
+
+        <!-- Right Image Section -->
+        <div class="w-full md:w-2/3 flex justify-center">
+          <img
+            src="/assets/hero-banner-kidslab.webp"
+            alt="Kidslab — aprendizaje creativo de tecnología con corazón"
+            class="w-full max-w-[100%] h-auto object-contain"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Certified Logos Strip -->
+    <section class="py-12 bg-white">
+      <div class="max-w-6xl mx-auto text-center mb-8">
+        <p class="text-gray-600 text-md md:text-lg">
+          Usamos herramientas profesionales con responsabilidad y supervisión: mentores humanos, ética y reglas claras.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-9 gap-5 place-items-center text-gray-400 text-4xl px-4">
+        <iconify-icon icon="logos:microsoft-icon" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:adobe-icon" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:blender" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:visual-studio-code" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:openai-icon" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:arduino" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:python" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:html-5" class="inline-block" aria-hidden="true" />
+        <iconify-icon icon="logos:microsoft-teams" class="inline-block" aria-hidden="true" />
+      </div>
+    </section>
+
+    <!-- Donde la tecnología se encuentra con la empatía -->
+    <section class="bg-kidslab-celeste py-20 px-6">
+      <div class="max-w-6xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-6xl font-lemon text-kidslab-naranja mb-4">
+          <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja mr-2" aria-hidden="true"></iconify-icon>
+          Donde la tecnología se encuentra con la empatía
+        </h2>
+        <p class="text-lg text-white">
+          La tecnología debe servir a las personas. Enseñamos a usar la IA con cuidado, curiosidad y respeto — nunca como atajo, siempre como herramienta para crear y aprender mejor.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex items-start gap-4 text-left">
+          <iconify-icon icon="ph:heart-duotone" width="36" height="36" class="text-kidslab-celeste mt-1" aria-hidden="true" />
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">Empatía en acción</h3>
+            <p class="text-sm text-gray-600">Amabilidad, consentimiento y ciudadanía digital forman parte de cada proyecto.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex items-start gap-4 text-left">
+          <iconify-icon icon="ph:flask-duotone" width="36" height="36" class="text-kidslab-celeste mt-1" aria-hidden="true" />
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">STEAM primero</h3>
+            <p class="text-sm text-gray-600">Arte, código y ciencia para construir confianza y habilidades que permanecen.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex items-start gap-4 text-left">
+          <iconify-icon icon="ph:question-duotone" width="36" height="36" class="text-kidslab-celeste mt-1" aria-hidden="true" />
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">Curiosidad &gt; Conformidad</h3>
+            <p class="text-sm text-gray-600">Celebramos las buenas preguntas y las ideas originales — no la memorización.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex items-start gap-4 text-left">
+          <iconify-icon icon="ph:game-controller-duotone" width="36" height="36" class="text-kidslab-celeste mt-1" aria-hidden="true" />
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">Aprender jugando</h3>
+            <p class="text-sm text-gray-600">Juegos e historias hacen naturales los temas complejos (y divertidos).</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex items-start gap-4 text-left">
+          <iconify-icon icon="ph:briefcase-duotone" width="36" height="36" class="text-kidslab-celeste mt-1" aria-hidden="true" />
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">Herramientas reales, mentores reales</h3>
+            <p class="text-sm text-gray-600">Pro‑tools con guía humana y reglas transparentes en cada clase.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex items-start gap-4 text-left">
+          <iconify-icon icon="ph:globe-duotone" width="36" height="36" class="text-kidslab-celeste mt-1" aria-hidden="true" />
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-1">Raíces LatAm, visión global</h3>
+            <p class="text-sm text-gray-600">Orgullosamente desde El Salvador, con puertas abiertas al mundo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pulpo RASS Divider -->
+    <div class="w-full flex justify-center mt-[-3rem] mb-[-1.5rem]">
+      <img
+        src="/assets/pulpo.png"
+        alt="Pulpo RASS — tu mentor de IA"
+        class="w-40 md:w-52 lg:w-64 drop-shadow-xl animate-float-up"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Encuentra tu camino creativo -->
+    <section class="bg-white py-20 px-6">
+      <div class="max-w-6xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-6xl font-lemon text-kidslab-naranja font-bold mb-4">
+          <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja mr-2" aria-hidden="true"></iconify-icon>
+          Encuentra tu camino creativo
+        </h2>
+        <p class="text-lg text-gray-700">
+          Le encanten el arte, los juegos, la robótica o la IA — aquí cada niña y niño encuentra su camino para crear.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        <!-- Amigo Robot con IA -->
+        <a href="/es/amigo-robot-ia" class="group bg-white border border-kidslab-celeste rounded-xl p-6 shadow-md hover:shadow-xl transition block">
+          <iconify-icon icon="mdi:robot-happy" class="text-5xl text-kidslab-celeste mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-2 text-gray-900">Amigo Robot con IA</h3>
+          <p class="text-gray-600 text-sm">
+            Adolescentes (13–17) diseñan un compañero con IA — seguro, acompañado y creativo.
+          </p>
+          <span class="mt-3 inline-flex items-center gap-1 text-kidslab-celeste font-semibold">
+            Ver detalles
+            <iconify-icon icon="ph:arrow-right" class="text-base" aria-hidden="true"></iconify-icon>
+          </span>
+        </a>
+
+        <!-- Misión Python -->
+        <a href="/es/aventura-python" class="group bg-white border border-kidslab-celeste rounded-xl p-6 shadow-md hover:shadow-xl transition block">
+          <iconify-icon icon="mdi:language-python" class="text-5xl text-kidslab-celeste mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-2 text-gray-900">Misión Python</h3>
+          <p class="text-gray-600 text-sm">
+            Aprende Python creando mini‑juegos: lógica, creatividad y mucha diversión.
+          </p>
+          <span class="mt-3 inline-flex items-center gap-1 text-kidslab-celeste font-semibold">
+            Ver detalles
+            <iconify-icon icon="ph:arrow-right" class="text-base" aria-hidden="true"></iconify-icon>
+          </span>
+        </a>
+
+        <!-- Aventura de Diseño 3D -->
+        <a href="/es/diseno-3d-aventura" class="group bg-white border border-kidslab-celeste rounded-xl p-6 shadow-md hover:shadow-xl transition block">
+          <iconify-icon icon="mdi:cube-outline" class="text-5xl text-kidslab-celeste mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-2 text-gray-900">Aventura de Diseño 3D</h3>
+          <p class="text-gray-600 text-sm">
+            Da vida a la imaginación en Blender: personajes, props y mini‑animaciones.
+          </p>
+          <span class="mt-3 inline-flex items-center gap-1 text-kidslab-celeste font-semibold">
+            Ver detalles
+            <iconify-icon icon="ph:arrow-right" class="text-base" aria-hidden="true"></iconify-icon>
+          </span>
+        </a>
+
+        <!-- Ilustración Digital — Descubre tu Estilo -->
+        <a href="/es/ilustracion-digital-estilo" class="group bg-white border border-kidslab-celeste rounded-xl p-6 shadow-md hover:shadow-xl transition block">
+          <iconify-icon icon="mdi:brush" class="text-5xl text-kidslab-celeste mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-2 text-gray-900">Ilustración Digital — Descubre tu Estilo</h3>
+          <p class="text-gray-600 text-sm">
+            Encuentra tu voz visual: bases analógicas + herramientas digitales modernas.
+          </p>
+          <span class="mt-3 inline-flex items-center gap-1 text-kidslab-celeste font-semibold">
+            Ver detalles
+            <iconify-icon icon="ph:arrow-right" class="text-base" aria-hidden="true"></iconify-icon>
+          </span>
+        </a>
+
+        <!-- Programación con Minecraft EDU -->
+        <a href="/es/programacion-minecraft-edu" class="group bg-white border border-kidslab-celeste rounded-xl p-6 shadow-md hover:shadow-xl transition block">
+          <iconify-icon icon="mdi:microsoft-xbox-controller" class="text-5xl text-kidslab-celeste mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-2 text-gray-900">Programación con Minecraft EDU</h3>
+          <p class="text-gray-600 text-sm">
+            Resuelve problemas mientras construyes mundos y sistemas dentro de Minecraft EDU.
+          </p>
+          <span class="mt-3 inline-flex items-center gap-1 text-kidslab-celeste font-semibold">
+            Ver detalles
+            <iconify-icon icon="ph:arrow-right" class="text-base" aria-hidden="true"></iconify-icon>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Kidslab en acción -->
+    <section class="bg-white py-20 px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-lemon text-kidslab-naranja mb-4">Kidslab en accion</h2>
+          <p class="text-lg text-gray-700 mb-4">
+            Sonrisas reales, habilidades reales. Más que clases, son experiencias que encienden alegría, confianza y curiosidad.
+          </p>
+          <p class="text-lg text-gray-700">
+            Ya sea diseñando juegos, creando robots o programando con IA, cada quien descubre su superpoder creativo.
+          </p>
+        </div>
+
+        <div>
+          <img src="/assets/kidslab-action-1.png" alt="Estudiantes colaborando en un proyecto creativo de código" class="rounded-xl shadow-lg w-full" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center mt-24">
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src="/assets/kidslab-action-2.png"
+            alt="Niñas y niños creando con herramientas tecnológicas"
+            class="w-full h-auto object-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div>
+          <h2 class="text-3xl md:text-4xl font-lemon text-kidslab-naranja mb-6">
+            Hecho para aprender con alegria
+          </h2>
+          <p class="text-lg text-gray-700 mb-4">
+            Mezclamos creatividad latina con tecnología global. De la IA al relato digital, cada clase se siente como una aventura guiada.
+          </p>
+          <p class="text-lg text-gray-700">
+            No solo preparamos para el futuro — hacemos el presente más emocionante, significativo y mágico.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-kidslab-morado text-white py-20 px-6">
+      <div class="max-w-6xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-6xl font-lemon text-kidslab-naranja mb-4">
+          <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja mr-2" aria-hidden="true"></iconify-icon>
+          Nuestro viaje de aprendizaje
+        </h2>
+        <p class="text-lg text-gray-100 max-w-3xl mx-auto">
+          De la curiosidad a la creatividad: acompañamos con juego, propósito y proyectos que hacen crecer.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto text-center">
+        <div class="p-6 bg-white/10 rounded-xl shadow text-white hover:shadow-lg transition">
+          <div class="text-5xl mb-3">
+            <iconify-icon icon="mdi:gamepad-variant-outline" aria-hidden="true"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Jugar</h3>
+          <p class="text-sm">Experiencias lúdicas que despiertan curiosidad con historias, retos y pruebas.</p>
+        </div>
+
+        <div class="p-6 bg-white/10 rounded-xl shadow text-white hover:shadow-lg transition">
+          <div class="text-5xl mb-3">
+            <iconify-icon icon="mdi:book-open-variant-outline" aria-hidden="true"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Aprender</h3>
+          <p class="text-sm">Conceptos clave de IA, código, ética y habilidades digitales con acompañamiento humano.</p>
+        </div>
+
+        <div class="p-6 bg-white/10 rounded-xl shadow text-white hover:shadow-lg transition">
+          <div class="text-5xl mb-3">
+            <iconify-icon icon="mdi:tools" aria-hidden="true"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Construir</h3>
+          <p class="text-sm">De Minecraft a herramientas digitales, pasan a proyectos útiles y bien pensados.</p>
+        </div>
+
+        <div class="p-6 bg-white/10 rounded-xl shadow text-white hover:shadow-lg transition">
+          <div class="text-5xl mb-3">
+            <iconify-icon icon="mdi:account-group-outline" aria-hidden="true"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Compartir</h3>
+          <p class="text-sm">Presentan su trabajo, colaboran y enseñan — ganando confianza y trabajo en equipo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16" id="how-it-works">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-6xl font-display font-bold text-kidslab-naranja mb-10">
+          <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja mr-2" aria-hidden="true"></iconify-icon>
+          Como funciona?
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+          <!-- Paso 1 -->
+          <div class="flex flex-col items-center text-center px-6">
+            <div class="relative mb-4">
+              <div class="w-20 h-20 bg-kidslab-celeste/70 rounded-full"></div>
+              <img
+                src="/assets/images/kidslab-spark.png"
+                alt="Pulpo RASS — Chispa"
+                class="relative z-10 w-[160px] -mx-4 -mt-24"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-semibold text-lg text-gray-800 mb-2">Enciende la chispa</h3>
+            <p class="text-gray-600 mb-2">
+              Agenda una llamada breve: escuchamos intereses y metas de tu hija o hijo.
+            </p>
+            <a href="/es#contacto" class="text-kidslab-naranja font-semibold hover:underline mt-2">Habla con un mentor</a>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="flex flex-col items-center text-center px-6">
+            <div class="relative mb-4">
+              <div class="w-20 h-20 bg-kidslab-celeste/70 rounded-full"></div>
+              <img
+                src="/assets/images/kidslab-path.png"
+                alt="Pulpo RASS — Camino"
+                class="relative z-10 w-[160px] -mx-4 -mt-24"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-semibold text-lg text-gray-800 mb-2">Elige tu camino</h3>
+            <p class="text-gray-600 mb-2">
+              Recomendamos el programa ideal según personalidad, edad e intereses.
+            </p>
+            <a href="/es/cursos-tecnologia-creativa" class="text-kidslab-naranja font-semibold hover:underline mt-2">Explorar programas</a>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="flex flex-col items-center text-center px-6">
+            <div class="relative mb-4">
+              <div class="w-20 h-20 bg-kidslab-celeste/70 rounded-full"></div>
+              <img
+                src="/assets/images/kidslab-thrive.png"
+                alt="Pulpo RASS — Florecer"
+                class="relative z-10 w-[160px] -mx-4 -mt-24"
+                loading="lazy"
+              />
+            </div>
+            <h3 class="font-semibold text-lg text-gray-800 mb-2">Mírales florecer</h3>
+            <p class="text-gray-600 mb-2">
+              Aprenden habilidades reales, conocen mentores y crean cosas de las que se sienten orgullosos.
+            </p>
+            <a href="/es#impacto" class="text-kidslab-naranja font-semibold hover:underline mt-2">Ver el impacto</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+  <h2 class="text-3xl md:text-5xl font-lemon font-bold text-center text-kidslab-naranja mb-6">
+    <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja mr-3" aria-hidden="true"></iconify-icon>
+    Un espacio de confianza para familias
+  </h2>
+  <p class="text-lg text-gray-600">
+    Más que clases — Kidslab es una familia creativa donde cada niña y niño puede explorar, crear y crecer con propósito.
+  </p>
+</div>
+
+  <div class="swiper testimonial-slider pb-20">
+    <div class="swiper-wrapper">
+      <!-- Testimonio 1 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:robot-duotone" width="36" height="36" class="text-kidslab-naranja mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Quino Sical · Guatemala</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Arlet Suri ha crecido muchísimo en confianza y creatividad gracias a la programación con Minecraft. ¡Es su momento favorito de la semana!”
+        </p>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:rocket-launch-duotone" width="36" height="36" class="text-purple-600 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Valencia Yanme · El Salvador</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Rodrigo siempre llega emocionado a mostrar lo que construyó. Las clases lo retan e inspiran cada vez.”
+        </p>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:paint-brush-broad-duotone" width="36" height="36" class="text-kidslab-amarillo mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Mira Panameño · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Apenas empezamos y mi hijo ya quiere tomar todos los cursos. La vibra y la energía de las y los profes es increíble.”
+        </p>
+      </div>
+
+      <!-- Testimonio 4 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:terminal-window-duotone" width="36" height="36" class="text-blue-500 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Moisa Nuila · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “El amor de mi hija por programar se disparó con los retos de Blockly — ¡pide aprender hasta los fines de semana!”
+        </p>
+      </div>
+
+      <!-- Testimonio 5 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:code-duotone" width="36" height="36" class="text-green-600 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Villacorta Ehlerman · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Nos sorprende el progreso. Es como la escuela, pero con diversión, propósito y proyectos que de verdad enganchan.”
+        </p>
+      </div>
+
+      <!-- Testimonio 6 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:device-mobile-duotone" width="36" height="36" class="text-pink-600 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Urbina Hernández · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “De tímida a brillante — nuestra hija encontró su voz gracias a la tecnología y al trabajo en equipo en Kidslab.”
+        </p>
+      </div>
+
+      <!-- Testimonio 7 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:globe-stand-duotone" width="36" height="36" class="text-indigo-600 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Papescu · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Nico la pasó genial en el curso de Metaverso. Sigue explorando, construyendo y soñando en grande cada día.”
+        </p>
+      </div>
+
+      <!-- Testimonio 8 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:keyboard-duotone" width="36" height="36" class="text-red-500 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Rovira Ramírez · El Salvador</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Xavi ahora parece un mini mago de la tecnología — lleno de ideas y confianza. Este lugar es mágico.”
+        </p>
+      </div>
+
+      <!-- Testimonio 9 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:sword-duotone" width="36" height="36" class="text-yellow-600 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Castro Orozco · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Sophia ama construir y competir en Minecraft — ¡hasta hizo nuevas amistades después de clase!”
+        </p>
+      </div>
+
+      <!-- Testimonio 10 -->
+      <div class="swiper-slide bg-white rounded-xl shadow-md p-8 text-left">
+        <div class="flex items-center mb-4">
+          <iconify-icon icon="ph:brain-duotone" width="36" height="36" class="text-cyan-700 mr-3" aria-hidden="true"></iconify-icon>
+          <p class="text-sm text-gray-500">Familia Macal Navarrete · EE. UU.</p>
+        </div>
+        <p class="text-lg text-gray-800 italic">
+          “Paula es de las niñas más brillantes que hemos visto, y su equipo la ayudó a brillar de nuevas maneras.”
+        </p>
+      </div>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="swiper-pagination mt-8"></div>
+  </div>
+</section>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-kidslab-naranja font-display text-3xl md:text-4xl mb-4">Por que creamos Kidslab?</h2>
+        <p class="text-gray-800 text-lg mb-4">
+          Kidslab nació como un sueño en Latinoamérica: darle a cada mente curiosa un espacio para crear, programar y crecer con propósito.
+        </p>
+        <p class="text-gray-800 text-lg mb-4">
+          Cansados de ver talento encajonado en sistemas viejos, construimos un lugar donde la creatividad vale más que la perfección y la tecnología es una herramienta de <span class="font-semibold">conexión</span>, no de aislamiento.
+        </p>
+        <p class="text-gray-800 text-lg mb-6">
+          Hoy Kidslab es una comunidad de educadores, diseñadores y familias que creen en el aprendizaje con alegría.
+        </p>
+        <p class="text-base text-gray-600 italic">
+          ¿Te gustaría saber si Kidslab es una buena opción para tu familia? Conversemos.
+        </p>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden shadow-md">
+        <img src="/assets/kidslab-origin.png" alt="Historia de origen de Kidslab" class="w-full object-cover" loading="lazy">
+      </div>
+    </section>
+
+    <WhatsAppLeadForm />
+  </main>
 </BaseLayout>

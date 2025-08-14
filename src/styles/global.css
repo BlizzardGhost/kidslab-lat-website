@@ -5,3 +5,9 @@
   font-style: normal;
   font-display: swap;
 }
+
+.header-scrolled {
+  @apply bg-white/85 backdrop-blur-md shadow-md fixed;
+}
+
+html, body { margin: 0 !important; padding: 0; }

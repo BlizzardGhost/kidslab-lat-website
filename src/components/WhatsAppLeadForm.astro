@@ -3,21 +3,21 @@
 ---
 <section id="get-info" class="py-12 bg-white px-4 sm:px-6 lg:px-8">
   <div class="max-w-4xl mx-auto flex flex-col items-center justify-center">
-    
     <!-- TITLE + MASCOT -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
       <img
         src="/assets/pulpo.png"
-        alt="Pulpo RASS"
+        alt="Kidslab octopus mascot — playful neural‑network guide"
         class="w-28 h-auto sm:w-32 sm:h-auto drop-shadow-md"
+        loading="lazy"
       />
-      <h2 class="text-3xl md:text-6xl font-display font-bold text-kidslab-naranja text-center sm:text-left leading-tight">
-        Let’s take the first step!
+      <h2 id="leadform-title" class="text-3xl md:text-6xl font-lemon font-bold text-kidslab-naranja text-center sm:text-left leading-tight">
+        Create to learn — first step!
       </h2>
     </div>
 
     <!-- FORM -->
-    <form id="whatsapp-form" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <form id="whatsapp-form" class="flex flex-col sm:flex-row items-center justify-center gap-4" aria-labelledby="leadform-title">
       <input
         id="name"
         type="text"
@@ -25,10 +25,12 @@
         placeholder="Your Name"
         required
         class="border border-gray-300 rounded-md p-2 w-full sm:w-64"
+        autocomplete="name"
+        aria-label="Your name"
       />
 
       <div class="flex gap-2 w-full sm:w-auto">
-        <select id="country-code" name="country-code" required class="border border-gray-300 rounded-md p-2 w-24">
+        <select id="country-code" name="country-code" required class="border border-gray-300 rounded-md p-2 w-24" aria-label="Country code">
           <option value="57">🇨🇴 +57</option>
           <option value="503" selected>🇸🇻 +503</option>
           <option value="1">🇺🇸 +1</option>
@@ -41,20 +43,23 @@
           placeholder="Your Phone"
           required
           class="border border-gray-300 rounded-md p-2 w-full sm:w-64"
+          inputmode="tel"
+          autocomplete="tel"
+          aria-label="Your phone"
         />
       </div>
 
       <button
         type="submit"
-        class="bg-kidslab-naranja text-white px-6 py-2 rounded-full hover:bg-orange-500 transition"
+        class="bg-kidslab-naranja text-white px-6 py-2 rounded-full hover:bg-kidslab-amarillo transition"
       >
-        SEND
+        Send via WhatsApp
       </button>
     </form>
 
     <!-- DISCLAIMER -->
     <p class="text-sm text-gray-500 mt-3 text-center">
-      Only used to send you course info. No spam — just joyful learning! 🧠✨
+      We only use your info to share course details. No spam — just joyful learning! 🧠✨
     </p>
   </div>
 
@@ -63,41 +68,39 @@
     const form = document.getElementById('whatsapp-form');
 
     form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // 💥 prevents default submission
+      e.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const code = document.getElementById('country-code').value;
-      const phone = document.getElementById('phone').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const code = document.getElementById('country-code').value.trim();
+      const phone = document.getElementById('phone').value.replace(/[^0-9]/g, '').trim();
 
       if (!name || !phone) return;
 
-      // 💡 Trigger Pipedream webhook
+      // Trigger Pipedream webhook
       try {
         await fetch('https://eoj8cb91g0he9hd.m.pipedream.net', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            countryCode: code,
-            phone
-          })
+          body: JSON.stringify({ name, countryCode: code, phone })
         });
       } catch (err) {
         console.error('Failed to send to webhook:', err);
       }
 
-      // 💬 Launch WhatsApp to static academy number
+      // Launch WhatsApp to static academy number
       const academyNumber = '50378258472';
-      const message = encodeURIComponent(`Hola! Mi nombre es ${name}. Mi número es +${code} ${phone}. Estoy interesad@ en los cursos de Kidslab. ¿Me puedes compartir más información?`);
+      const message = encodeURIComponent(
+        `Hola! Mi nombre es ${name}. Mi número es +${code} ${phone}. Estoy interesad@ en los cursos de Kidslab. ¿Me puedes compartir más información?`
+      );
       const whatsappUrl = `https://wa.me/${academyNumber}?text=${message}`;
-
       window.open(whatsappUrl, '_blank');
 
-      // ✅ Redirect after short delay
+      // Redirect after short delay
       setTimeout(() => {
         window.location.href = '/en/thank-you';
       }, 2000);
     });
   </script>
+
   <input type="hidden" id="course" name="course" value="ai-robot-friend" />
 </section>

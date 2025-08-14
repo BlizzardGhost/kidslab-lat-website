@@ -3,65 +3,90 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import "/src/styles/global.css";
 
-const { lang, title = "Kidslab — A Creative Tech Lab for the Next Generation", description = "Where creativity meets code. Kidslab is the first AI-focused creative tech academy for kids in Latin America.", ogImage = "/assets/social-preview.webp" } = Astro.props;
-
+const {
+  lang,
+  title = "Kidslab — A Creative Tech Lab for the Next Generation",
+  description = "Where creativity meets code. Kidslab is the first AI‑focused creative tech academy for kids in Latin America.",
+  ogImage = "/assets/social-preview.webp"
+} = Astro.props;
 ---
 
 <html lang={lang}>
-  <title>{title}</title>
-<meta name="description" content={description} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={ogImage} />
   <head>
- <script type="module" src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
- <!-- Swiper CDN -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://use.typekit.net/bct8okz.css" rel="stylesheet">
 
-  <title>Kidslab — A Creative Tech Lab for the Next Generation</title>
-  <meta name="description" content="Where creativity meets code. Kidslab is the first AI-focused creative tech academy for kids in Latin America." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page meta (single source of truth) -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Optional social preview -->
-  <meta property="og:title" content="Kidslab" />
-  <meta property="og:description" content="Creative tech for kids in Latin America. Built with empathy and code." />
-  <meta property="og:image" content="/assets/social-preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <!-- Perf preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://use.typekit.net">
+    <link rel="preconnect" href="https://code.iconify.design">
+
+    <!-- Iconify + Swiper (CDN) -->
+    <script type="module" src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Typography (brandbook) -->
+    <!-- Nunito: include Light(300) + Semibold(600) as per brandbook guidance -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- Lemon Bird via Typekit (or local fallback in /src/styles/global.css) -->
+    <link href="https://use.typekit.net/bct8okz.css" rel="stylesheet" />
   </head>
+
   <body class="min-h-screen flex flex-col bg-white text-gray-900">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-kidslab-morado px-3 py-1 rounded">
+      Skip to content
+    </a>
+
     <Header lang={lang} />
-    <main class="flex-1">
+
+    <main id="main" class="flex-1">
       <slot />
     </main>
-    <Footer />
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    new Swiper('.testimonial-slider', {
-      loop: true,
-      autoplay: { delay: 6000 },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      slidesPerView: 1,
-      spaceBetween: 24,
-      breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      },
-    });
-  });
-</script>
+    <Footer lang={lang} />
 
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- Swiper init -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const el = document.querySelector('.testimonial-slider');
+        if (!el) return;
+        new Swiper('.testimonial-slider', {
+          loop: true,
+          autoplay: { delay: 6000, disableOnInteraction: false },
+          pagination: { el: '.swiper-pagination', clickable: true },
+          slidesPerView: 1,
+          spaceBetween: 24,
+          breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
+      });
+    </script>
+
+    <!-- Alpine (for Language Switcher) -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  
+  <div class="fixed bottom-0 left-0 right-0 bg-kidslab-morado text-white py-3 px-4 flex justify-between items-center md:hidden shadow-lg z-50">
+  <span class="font-semibold text-sm">Reserve now — 8 seats left!</span>
+  <a href="#get-info" class="bg-kidslab-naranja px-4 py-2 rounded-full font-bold text-sm">
+    Reserve
+  </a>
+</div>
 
   </body>
 </html>

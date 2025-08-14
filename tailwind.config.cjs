@@ -4,19 +4,22 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito', 'sans-serif'],
-        display: ['"lemon-bird"', 'cursive'],
-        lemon: ['"lemon-bird"', 'cursive'],
+        sans: ['Nunito', 'sans-serif'],          // Body (brandbook)
+        display: ['"lemon-bird"', 'cursive'],    // Display
+        lemon: ['"lemon-bird"', 'cursive'],      // Alias for convenience
       },
       colors: {
-        'kidslab-naranja': '#ff7f50',
-        'kidslab-amarillo': '#ffcf33',
-        'kidslab-celeste': '#3ed4e0',
-        'kidslab-morado': '#8c5fc2',
+        // Brand palette — do not alter (brandbook)
+        'kidslab-naranja': '#f08f15',
+        'kidslab-amarillo': '#f5cc18',
+        'kidslab-celeste': '#2784c0',
+        'kidslab-morado': '#673589',
+        'kidslab-rojo': '#c51b2e',
+        'kidslab-gris': '#bababa',
       },
       animation: {
         'float-up': 'floatUp 6s ease-in-out infinite',
-        'marquee': 'marquee 25s linear infinite',
+        marquee: 'marquee 25s linear infinite',
       },
       keyframes: {
         floatUp: {

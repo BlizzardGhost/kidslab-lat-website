@@ -2,39 +2,62 @@
 const { lang = 'en' } = Astro.props;
 
 const nav = {
-  en: ['Home', 'About', 'Courses'],
-  es: ['Inicio', 'Nosotros', 'Cursos']
+  en: [
+    { label: 'Home', href: '/en' },
+    { label: 'About', href: '/en/about' },
+    { label: 'Courses', href: '/en/courses' },
+  ],
+  es: [
+    { label: 'Inicio', href: '/es' },
+    { label: 'Nosotros', href: '/es/nosotros' },
+    { label: 'Cursos', href: '/es/cursos' },
+  ],
 };
-
 const navItems = nav[lang] ?? [];
 
-import LanguageSwitcher from '../components/LanguageSwitcher.astro'
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 ---
 
 <header class="w-full sticky top-4 md:top-8 z-50">
-  <div class="mx-auto max-w-6xl bg-white bg-opacity-75 backdrop-blur-md rounded-full px-6 py-3 flex flex-col md:flex-row md:items-center md:justify-between border border-gray-200 shadow-md gap-2">
-
-    <!-- Logo -->
-    <div class="flex justify-center md:justify-start">
-      <a href={lang === 'es' ? '/es' : '/en'} class="flex items-center">
-        <img src="/assets/branding/logo.svg" alt="Kidslab logo" class="h-8 w-auto" />
+  <div
+    class="mx-auto max-w-6xl bg-white/80 backdrop-blur-md rounded-full px-6 py-3
+           flex flex-col md:flex-row md:items-center md:justify-between
+           border border-gray-200 shadow-md gap-2"
+  >
+    <!-- Logo (respect min size & clear space via padding) -->
+    <div class="flex justify-center md:justify-start py-1">
+      <a href={lang === 'es' ? '/es' : '/en'} class="flex items-center" aria-label="Kidslab home">
+        <img src="/assets/branding/logo.svg" alt="Kidslab logo" class="h-9 w-auto" />
       </a>
     </div>
 
-    <!-- Navigation (desktop only) -->
-    <nav class="hidden md:flex items-center space-x-8 text-sm md:text-base">
-      {navItems.map(item => (
-        <a href="#" class="text-gray-700 hover:text-kidslab-naranja font-medium">{item}</a>
+    <!-- Navigation (desktop) -->
+    <nav class="hidden md:flex items-center gap-8 text-sm md:text-base">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-gray-700 hover:text-kidslab-naranja font-medium aria-[current=page]:text-kidslab-naranja"
+          aria-current={Astro.url.pathname === item.href ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
       ))}
     </nav>
 
     <!-- Phone + Language -->
-    <div class="flex justify-center md:justify-end items-center space-x-4 md:space-x-6 text-lg md:text-base">
-      <a href="https://wa.me/50378258472" target="_blank" class="text-gray-700 hover:text-kidslab-naranja font-semibold whitespace-nowrap">
+    <div class="flex justify-center md:justify-end items-center gap-4 md:gap-6 text-lg md:text-base">
+      <a
+        href="https://wa.me/50378258472"
+        target="_blank"
+        rel="noopener"
+        class="text-gray-700 hover:text-kidslab-naranja font-semibold whitespace-nowrap"
+        aria-label="WhatsApp: +503 7825 8472"
+      >
         Need help? <span class="text-kidslab-naranja font-bold">+503 7825 8472</span>
       </a>
       <LanguageSwitcher lang={lang} />
     </div>
-
   </div>
+
+  <!-- TODO (post‑MVP): add a11y-friendly mobile menu for < md -->
 </header>

@@ -1,55 +1,55 @@
 ---
-// pages/en/courses.astro
+// pages/es/cursos.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const lang = 'en';
+const lang = 'es';
 
 const courses = [
   {
-    title: 'AI Robot Friend',
-    blurb: 'Teens (13–17) design a friendly AI companion—safe, supervised, and creative.',
-    href: '/en/ai-robot-friend', // live
+    title: 'Amigo Robot con IA',
+    blurb: 'Adolescentes (13–17) diseñan un compañero de IA amigable — seguro, acompañado y creativo.',
+    href: '/es/ai-robot-friend',
     icon: 'ph:robot',
     color: 'text-kidslab-morado',
   },
   {
-    title: 'Python Quest',
-    blurb: 'Learn Python by building mini‑games. Logic, creativity, and lots of fun.',
-    href: '/en/python-quest',
+    title: 'Misión Python',
+    blurb: 'Aprende Python creando mini‑juegos. Lógica, creatividad y mucha diversión.',
+    href: '/es/python-quest',
     icon: 'ph:code',
     color: 'text-kidslab-morado',
   },
   {
-    title: '3D Design Adventure',
-    blurb: 'Bring imagination to life in Blender—characters, props, and mini animations.',
-    href: '/en/3d-design-adventure',
+    title: 'Aventura de Diseño 3D',
+    blurb: 'Da vida a tu imaginación en Blender — personajes, props y mini animaciones.',
+    href: '/es/3d-design-adventure',
     icon: 'ph:cube-focus',
     color: 'text-kidslab-morado',
   },
   {
-    title: 'Digital Illustration — Discover Your Style',
-    blurb: 'Discover your visual voice—analog basics + modern digital tools.',
-    href: '/en/digital-illustration-style',
+    title: 'Ilustración Digital — Descubre tu Estilo',
+    blurb: 'Descubre tu voz visual — bases analógicas + herramientas digitales modernas.',
+    href: '/es/digital-illustration-style',
     icon: 'ph:paint-brush-broad',
     color: 'text-kidslab-morado',
   },
   {
-    title: 'Coding with Minecraft EDU',
-    blurb: 'Learn problem‑solving while building inside Minecraft EDU.',
-    href: '/en/minecraft-edu-coding',
+    title: 'Programación con Minecraft EDU',
+    blurb: 'Aprende a resolver problemas construyendo dentro de Minecraft EDU.',
+    href: '/es/minecraft-edu-coding',
     icon: 'ph:cube',
     color: 'text-kidslab-morado',
   },
 ];
 ---
 
-<BaseLayout lang={lang} title="Courses | Kidslab" description="Explore our creative, human‑first tech courses for kids and teens.">
+<BaseLayout lang={lang} title="Cursos | Kidslab" description="Explora nuestros cursos de tecnología creativa para niños y adolescentes: humanos primero, éticos y muy divertidos.">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
     <h1 class="font-display text-4xl md:text-5xl font-bold text-kidslab-naranja text-center">
-      Choose Your Path
+      Elige tu camino
     </h1>
     <p class="mt-3 text-center text-gray-700 max-w-2xl mx-auto">
-      Human‑first, ethical, and seriously fun. Start where you are—grow with a mentor.
+      Humano primero, ético y súper divertido. Empieza donde estás — crece con un mentor.
     </p>
 
     <div class="mt-10 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -61,7 +61,7 @@ const courses = [
               <h3 class="text-lg font-bold text-gray-900">{c.title}</h3>
               <p class="mt-1 text-sm text-gray-600">{c.blurb}</p>
               <span class="mt-3 inline-flex items-center gap-1 text-kidslab-celeste font-semibold">
-                View details
+                Ver detalles
                 <iconify-icon icon="ph:arrow-right" class="text-base" aria-hidden="true"></iconify-icon>
               </span>
             </div>
@@ -71,7 +71,7 @@ const courses = [
     </div>
 
     <div class="mt-10 text-center text-sm text-gray-500">
-      Don’t see your dream course? <a href="/en#get-info" class="text-kidslab-naranja font-semibold hover:underline">Tell us what you want to build.</a>
+      ¿No ves tu curso soñado? <a href="/es#get-info" class="text-kidslab-naranja font-semibold hover:underline">Cuéntanos qué quieres crear.</a>
     </div>
   </section>
 </BaseLayout>

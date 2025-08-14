@@ -1,88 +1,155 @@
+---
+const { lang = 'en' } = Astro.props;
+
+const t = {
+  en: {
+    followUs: 'Follow Us',
+    courses: 'Courses',
+    forParents: 'For Parents',
+    about: 'About',
+    legal: 'Legal',
+    gettingStarted: 'Getting Started',
+    homeschool: 'Homeschool Tools',
+    liveSupport: 'Live Support',
+    ourStory: 'Our Story',
+    team: 'Team',
+    join: 'Join the Mission',
+    privacy: 'Privacy Policy',
+    terms: 'Terms of Use',
+    contact: 'Contact',
+    divider1: 'Handcrafted in Latin America — Powered by Astro, Iconify, AI, and the occasional pup hair 🐾',
+    divider2a: 'Meet ',
+    divider2b: ', our AI Sidekick:',
+    robotCourse: 'The Robot Friend Course',
+    copyright: 'Empowering Ethical Tech Futures',
+    // slugs
+    root: '/en',
+    coursesList: '/en/courses',
+    aboutSlug: '/en/about',
+    contactSlug: '/en/contact',
+    // course LPs
+    py: '/en/python-quest',
+    d3: '/en/3d-design-adventure',
+    illus: '/en/digital-illustration-style',
+    ai: '/en/ai-robot-friend',
+    mc: '/en/minecraft-edu-coding',
+  },
+  es: {
+    followUs: 'Síguenos',
+    courses: 'Cursos',
+    forParents: 'Para Familias',
+    about: 'Nosotros',
+    legal: 'Legal',
+    gettingStarted: 'Primeros Pasos',
+    homeschool: 'Herramientas Homeschool',
+    liveSupport: 'Soporte en Vivo',
+    ourStory: 'Nuestra Historia',
+    team: 'Equipo',
+    join: 'Súmate a la misión',
+    privacy: 'Política de Privacidad',
+    terms: 'Términos de Uso',
+    contact: 'Contacto',
+    divider1: 'Hecho a mano en Latinoamérica — con Astro, Iconify, IA y algún pelito de perrito 🐾',
+    divider2a: 'Conoce a ',
+    divider2b: ', nuestro asistente de IA:',
+    robotCourse: 'El curso Amigo Robot',
+    copyright: 'Impulsando futuros éticos en tecnología',
+    // slugs
+    root: '/es',
+    coursesList: '/es/cursos-tecnologia-creativa',
+    aboutSlug: '/es/sobre-nosotros',
+    contactSlug: '/es/contacto',
+    // course LPs
+    py: '/es/aventura-python',
+    d3: '/es/diseno-3d-aventura',
+    illus: '/es/ilustracion-digital-estilo',
+    ai: '/es/amigo-robot-ia',
+    mc: '/es/programacion-minecraft-edu',
+  },
+}[lang] ?? {};
+---
+
 <section class="bg-[#794ACF] text-white py-12 px-6 md:px-20 mt-16">
   <div class="max-w-7xl mx-auto grid md:grid-cols-5 gap-8 text-sm">
 
     <!-- Column 1 -->
-<div>
-  <h4 class="font-semibold text-lg mb-4 text-white">Follow Us</h4>
-
-  <div class="flex items-center gap-4">
-    <!-- Instagram -->
-    <a href="#" title="Instagram" aria-label="Instagram"
-       class="group inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-white/45 text-white/85
-              transition-all hover:text-kidslab-naranja hover:ring-kidslab-naranja hover:bg-white/8 focus:outline-none
-              focus-visible:ring-2 focus-visible:ring-kidslab-naranja/90">
-      <iconify-icon icon="mdi:instagram" class="text-[22px] transition-transform group-hover:scale-110"></iconify-icon>
-    </a>
-
-    <!-- TikTok -->
-    <a href="#" title="TikTok" aria-label="TikTok"
-       class="group inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-white/45 text-white/85
-              transition-all hover:text-kidslab-naranja hover:ring-kidslab-naranja hover:bg-white/8 focus:outline-none
-              focus-visible:ring-2 focus-visible:ring-kidslab-naranja/90">
-      <iconify-icon icon="ic:baseline-tiktok" class="text-[22px] transition-transform group-hover:scale-110"></iconify-icon>
-    </a>
-
-    <!-- YouTube -->
-    <a href="#" title="YouTube" aria-label="YouTube"
-       class="group inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-white/45 text-white/85
-              transition-all hover:text-kidslab-naranja hover:ring-kidslab-naranja hover:bg-white/8 focus:outline-none
-              focus-visible:ring-2 focus-visible:ring-kidslab-naranja/90">
-      <iconify-icon icon="mdi:youtube" class="text-[22px] transition-transform group-hover:scale-110"></iconify-icon>
-    </a>
-  </div>
-</div>
+    <div>
+      <h4 class="font-semibold text-lg mb-4 text-white">{t.followUs}</h4>
+      <div class="flex items-center gap-4">
+        <!-- Instagram -->
+        <a href="#" title="Instagram" aria-label="Instagram"
+           class="group inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-white/45 text-white/85
+                  transition-all hover:text-kidslab-naranja hover:ring-kidslab-naranja hover:bg-white/8 focus:outline-none
+                  focus-visible:ring-2 focus-visible:ring-kidslab-naranja/90">
+          <iconify-icon icon="mdi:instagram" class="text-[22px] transition-transform group-hover:scale-110"></iconify-icon>
+        </a>
+        <!-- TikTok -->
+        <a href="#" title="TikTok" aria-label="TikTok"
+           class="group inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-white/45 text-white/85
+                  transition-all hover:text-kidslab-naranja hover:ring-kidslab-naranja hover:bg-white/8 focus:outline-none
+                  focus-visible:ring-2 focus-visible:ring-kidslab-naranja/90">
+          <iconify-icon icon="ic:baseline-tiktok" class="text-[22px] transition-transform group-hover:scale-110"></iconify-icon>
+        </a>
+        <!-- YouTube -->
+        <a href="#" title="YouTube" aria-label="YouTube"
+           class="group inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-white/45 text-white/85
+                  transition-all hover:text-kidslab-naranja hover:ring-kidslab-naranja hover:bg-white/8 focus:outline-none
+                  focus-visible:ring-2 focus-visible:ring-kidslab-naranja/90">
+          <iconify-icon icon="mdi:youtube" class="text-[22px] transition-transform group-hover:scale-110"></iconify-icon>
+        </a>
+      </div>
+    </div>
 
     <!-- Column 2 -->
     <div>
-      <h4 class="font-semibold text-lg mb-3">Courses</h4>
+      <h4 class="font-semibold text-lg mb-3">{t.courses}</h4>
       <ul class="space-y-1">
-        <li><a href="#">Creative Coding</a></li>
-        <li><a href="#">AI for Kids</a></li>
-        <li><a href="#">Robot Friend</a></li>
-        <li><a href="#">Startup Lab</a></li>
+        <li><a href={t.py}>Python Quest</a></li>
+        <li><a href={t.d3}>3D Design Adventure</a></li>
+        <li><a href={t.illus}>Digital Illustration — Discover Your Style</a></li>
+        <li><a href={t.ai}>AI Robot Friend</a></li>
+        <li><a href={t.mc}>Coding with Minecraft EDU</a></li>
       </ul>
     </div>
 
     <!-- Column 3 -->
     <div>
-      <h4 class="font-semibold text-lg mb-3">For Parents</h4>
+      <h4 class="font-semibold text-lg mb-3">{t.forParents}</h4>
       <ul class="space-y-1">
-        <li><a href="#">Getting Started</a></li>
-        <li><a href="#">Homeschool Tools</a></li>
-        <li><a href="#">Live Support</a></li>
+        <li><a href="#">{t.gettingStarted}</a></li>
+        <li><a href="#">{t.homeschool}</a></li>
+        <li><a href="#">{t.liveSupport}</a></li>
       </ul>
     </div>
 
     <!-- Column 4 -->
     <div>
-      <h4 class="font-semibold text-lg mb-3">About</h4>
+      <h4 class="font-semibold text-lg mb-3">{t.about}</h4>
       <ul class="space-y-1">
-        <li><a href="#">Our Story</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Join the Mission</a></li>
+        <li><a href={t.aboutSlug}>{t.ourStory}</a></li>
+        <li><a href="#">{t.team}</a></li>
+        <li><a href="#">{t.join}</a></li>
       </ul>
     </div>
 
     <!-- Column 5 -->
     <div>
-      <h4 class="font-semibold text-lg mb-3">Legal</h4>
+      <h4 class="font-semibold text-lg mb-3">{t.legal}</h4>
       <ul class="space-y-1">
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#">{t.privacy}</a></li>
+        <li><a href="#">{t.terms}</a></li>
+        <li><a href={t.contactSlug}>{t.contact}</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Divider -->
   <div class="border-t border-purple-300 mt-8 pt-6 text-center text-xs text-purple-100">
-    <p>
-      Handcrafted in Latin America — Powered by Astro, Iconify, AI, and the occasional pup hair 🐾
-    </p>
+    <p>{t.divider1}</p>
     <p class="mt-1">
-      Meet <strong>RASS</strong>, our AI Sidekick: 
-      <a href="/robot-friend" class="underline hover:text-white">The Robot Friend Course</a>
+      {t.divider2a}<strong>RASS</strong>{t.divider2b}
+      <a href={t.ai} class="underline hover:text-white">{t.robotCourse}</a>
     </p>
-    <p class="mt-1 text-purple-200">&copy; 2025 Kidslab.lat — Empowering Ethical Tech Futures</p>
+    <p class="mt-1 text-purple-200">&copy; 2025 Kidslab.lat — {t.copyright}</p>
   </div>
 </section>

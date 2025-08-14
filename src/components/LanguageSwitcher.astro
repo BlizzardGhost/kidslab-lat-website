@@ -3,20 +3,119 @@ const { lang = 'en' } = Astro.props;
 ---
 
 <!-- Language Toggle Switch -->
-<div 
-  x-data="{ lang: window.location.pathname.includes('/es') ? 'es' : 'en' }" 
-  @click="lang = lang === 'en' ? 'es' : 'en'; window.location.href = '/' + lang"
+<div
+  x-data="{
+    // Exact mapping for pages that don't share the same slug across languages
+    pathMap: {
+      // Home
+      '/en': '/es',
+      '/es': '/en',
+      '/en/': '/es',
+      '/es/': '/en',
+
+      // Top-level pages
+      '/en/about': '/es/sobre-nosotros',
+      '/es/sobre-nosotros': '/en/about',
+      '/en/contact': '/es/contacto',
+      '/es/contacto': '/en/contact',
+      '/en/courses': '/es/cursos-tecnologia-creativa',
+      '/es/cursos-tecnologia-creativa': '/en/courses',
+
+      // Course LPs
+      '/en/ai-robot-friend': '/es/amigo-robot-ia',
+      '/es/amigo-robot-ia': '/en/ai-robot-friend',
+
+      '/en/python-quest': '/es/aventura-python',
+      '/es/aventura-python': '/en/python-quest',
+
+      '/en/3d-design-adventure': '/es/diseno-3d-aventura',
+      '/es/diseno-3d-aventura': '/en/3d-design-adventure',
+
+      '/en/digital-illustration-style': '/es/ilustracion-digital-estilo',
+      '/es/ilustracion-digital-estilo': '/en/digital-illustration-style',
+
+      '/en/minecraft-edu-coding': '/es/programacion-minecraft-edu',
+      '/es/programacion-minecraft-edu': '/en/minecraft-edu-coding',
+    },
+
+    _norm(p) {
+      if (!p) return '/';
+      // remove trailing slash except root
+      return p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p;
+    },
+
+    _findLangIndex() {
+      const segs = window.location.pathname.split('/');
+      for (let i = 0; i < segs.length; i++) {
+        if (segs[i] === 'en' || segs[i] === 'es') return i;
+      }
+      return -1;
+    },
+    _getSegments() {
+      return window.location.pathname.split('/');
+    },
+    get currentLang() {
+      const i = this._findLangIndex();
+      return i > -1 ? this._getSegments()[i] : 'en';
+    },
+    lang: 'en',
+    init() {
+      this.lang = this.currentLang;
+    },
+    swap() {
+      const currentPath = this._norm(window.location.pathname);
+
+      // 1) If we have an exact mapping, use it
+      if (this.pathMap[currentPath]) {
+        const url = this.pathMap[currentPath] + window.location.search + window.location.hash;
+        this.lang = this.lang === 'en' ? 'es' : 'en';
+        window.location.assign(url);
+        return;
+      }
+
+      // 2) Fallback: segment swap (base-path safe)
+      const next = this.lang === 'en' ? 'es' : 'en';
+      const segs = this._getSegments();
+      const i = this._findLangIndex();
+
+      if (i > -1) {
+        segs[i] = next;
+      } else {
+        if (segs.length && segs[0] === '') {
+          segs.splice(1, 0, next);
+        } else {
+          segs.unshift('', next);
+        }
+      }
+
+      let newPath = segs.join('/');
+      if (!newPath.startsWith('/')) newPath = '/' + newPath;
+      // Normalize trailing slash again
+      newPath = this._norm(newPath);
+
+      const url = newPath + window.location.search + window.location.hash;
+      this.lang = next;
+      window.location.assign(url);
+    }
+  }"
+  @click="swap()"
+  @keydown.enter.prevent="swap()"
+  @keydown.space.prevent="swap()"
+  role="button"
+  tabindex="0"
+  aria-label="Change language"
+  :aria-pressed="lang === 'es'"
   class="relative flex items-center w-16 h-8 bg-kidslab-morado/20 rounded-full cursor-pointer transition-all duration-300 ease-in-out shadow-inner"
   title="Change language"
 >
   <!-- Switch Ball -->
-  <div 
+  <div
     class="absolute left-1 top-1 w-6 h-6 rounded-full bg-kidslab-morado shadow-md transition-transform duration-300 ease-in-out"
     :class="lang === 'en' ? 'translate-x-0' : 'translate-x-8'"
   ></div>
 
   <!-- EN / ES Labels -->
-  <div class="flex justify-between items-center w-full px-2 text-xs font-semibold text-kidslab-morado z-10">
+  <div class="flex justify-between items-center w-full px-2 text-xs font-semibold text-kidslab-morado z-10 select-none">
     <span :class="{ 'opacity-100': lang === 'en', 'opacity-50': lang !== 'en' }">EN</span>
     <span :class="{ 'opacity-100': lang === 'es', 'opacity-50': lang !== 'es' }">ES</span>
   </div>
