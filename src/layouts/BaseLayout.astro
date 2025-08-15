@@ -6,8 +6,8 @@ import "/src/styles/global.css";
 const {
   lang,
   title = "Kidslab — A Creative Tech Lab for the Next Generation",
-  description = "Where creativity meets code. Kidslab is the first AI‑focused creative tech academy for kids in Latin America.",
-  ogImage = "/assets/social-preview.webp"
+  description = "Where creativity meets code. Kidslab is the first AI-focused creative tech academy for kids in Latin America.",
+  ogImage = "/assets/social-preview.webp", // page can override this
 } = Astro.props;
 ---
 
@@ -16,7 +16,6 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Page meta (single source of truth) -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
@@ -42,14 +41,13 @@ const {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Typography (brandbook) -->
-    <!-- Nunito: include Light(300) + Semibold(600) as per brandbook guidance -->
+    <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <!-- Lemon Bird via Typekit (or local fallback in /src/styles/global.css) -->
     <link href="https://use.typekit.net/bct8okz.css" rel="stylesheet" />
   </head>
 
-  <body class="min-h-screen flex flex-col bg-white text-gray-900">
+  <body class="min-h-screen flex flex-col bg-white text-gray-900 overflow-x-clip">
+    <!-- a11y skip link -->
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-kidslab-morado px-3 py-1 rounded">
       Skip to content
     </a>
@@ -62,7 +60,7 @@ const {
 
     <Footer lang={lang} />
 
-    <!-- Swiper init -->
+    <!-- Swiper init (scoped, safe if slider not present) -->
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const el = document.querySelector('.testimonial-slider');
@@ -80,13 +78,5 @@ const {
 
     <!-- Alpine (for Language Switcher) -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-  
-  <div class="fixed bottom-0 left-0 right-0 bg-kidslab-morado text-white py-3 px-4 flex justify-between items-center md:hidden shadow-lg z-50">
-  <span class="font-semibold text-sm">Reserve now — 8 seats left!</span>
-  <a href="#get-info" class="bg-kidslab-naranja px-4 py-2 rounded-full font-bold text-sm">
-    Reserve
-  </a>
-</div>
-
   </body>
 </html>

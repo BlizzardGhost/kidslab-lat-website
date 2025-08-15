@@ -11,3 +11,8 @@
 }
 
 html, body { margin: 0 !important; padding: 0; }
+
+/* Prevent Alpine / modal flashes */
+[x-cloak] { display: none !important; }
+
+.text-balance { text-wrap: balance; }

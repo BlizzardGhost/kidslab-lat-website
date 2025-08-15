@@ -1,0 +1,82 @@
+---
+import WhatsAppLeadFormCompactEN from "./WhatsAppLeadFormCompactEN.astro";
+---
+
+<!-- Trigger lives in the slot; wrapper handles opening/closing -->
+<div x-data="{ open:false }" x-id="['leadmodal']" class="contents">
+  <!-- TRIGGER -->
+  <div @click.prevent="open = true"><slot /></div>
+
+  <!-- OVERLAY -->
+  <div
+    x-show="open"
+    x-cloak
+    x-transition.opacity
+    class="fixed inset-0 z-[120] bg-black/50 backdrop-blur-sm"
+    @click="open=false"
+    aria-hidden="true"
+  ></div>
+
+  <!-- DIALOG -->
+  <div
+    x-show="open"
+    x-cloak
+    class="fixed inset-0 z-[130] grid place-items-center p-4"
+    role="dialog"
+    aria-modal="true"
+    :aria-labelledby="$id('leadmodal')"
+    @keydown.escape.window="open=false"
+    x-transition
+  >
+    <div
+      @click.stop
+      class="relative w-full max-w-3xl md:max-w-4xl rounded-[1.5rem] overflow-hidden shadow-2xl ring-1 ring-black/5
+             bg-gradient-to-br from-kidslab-morado to-[#6f46a6] text-white
+             transform transition-all max-h-[92vh]"
+    >
+      <!-- Close -->
+      <button
+        type="button"
+        class="absolute right-4 top-4 p-2 rounded-full bg-white/90 hover:bg-white shadow transition"
+        @click="open=false"
+        aria-label="Close modal"
+      >
+        <iconify-icon icon="ph:x-bold" class="text-xl text-gray-700"></iconify-icon>
+      </button>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr]">
+        <!-- Left -->
+        <div class="p-8 md:p-10 flex flex-col items-center justify-center text-center">
+          <img
+            src="/assets/pulpo-ai.png"
+            alt=""
+            aria-hidden="true"
+            class="w-36 sm:w-48 md:w-56 lg:w-64 h-auto drop-shadow animate-float-up"
+          />
+          <h3 :id="$id('leadmodal')" class="mt-4 font-lemon text-2xl sm:text-3xl leading-tight drop-shadow">
+            Reserve your spot
+          </h3>
+          <div class="mt-3 hidden md:flex items-center gap-2 text-sm text-white/85">
+            <iconify-icon icon="ph:shield-check" class="text-lg"></iconify-icon>
+            <span>Parent‑friendly • Safe • Guided</span>
+          </div>
+        </div>
+
+        <!-- Right: compact form -->
+        <div
+          class="bg-white text-gray-900 rounded-t-[1.5rem] lg:rounded-none
+                 px-5 sm:px-7 lg:px-8 py-6 sm:py-7
+                 overflow-auto flex items-center justify-center"
+        >
+          <div class="mx-auto w-full max-w-md lg:max-w-lg">
+            <WhatsAppLeadFormCompactEN />
+            <p class="mt-3 flex items-center gap-2 text-xs text-gray-500">
+              <iconify-icon icon="ph:shield-check" class="text-kidslab-morado text-base"></iconify-icon>
+              Only used to send course info — no spam, just joyful learning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

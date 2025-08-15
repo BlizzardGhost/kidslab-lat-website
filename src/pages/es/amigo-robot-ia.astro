@@ -1,13 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WhatsAppLeadForm from "../../components/WhatsAppLeadForm.astro";
-import ModalWhatsAppLeadForm from "../../components/ModalWhatsAppLeadForm.astro";
+import ModalWhatsAppLeadFormES from "../../components/ModalWhatsAppLeadFormES.astro";
 
 const lang = "es";
 const title = "Dale a tu hijo un lugar seguro para explorar la IA — Guiado, creativo y humano | Kidslab";
 const description = "Curso en vivo de 8 sesiones donde adolescentes (13–17) crean un compañero de IA amigable — aprendiendo a usar la tecnología de forma segura, ética y con confianza, guiados por instructores cercanos.";
 const ogImage = "/assets/ai-robot-friend-og.jpg";
 const siteUrl = "https://kidslab.lat/mi-primer-amigo-robot"; // <- canónico en ES
+
+layout: '../layouts/BaseLayout.astro'
+title: 'Mi Primer Amigo Robot - IA para guiar de forma segura a tus hijos | Kidslab'
+description: 'Un curso creativo para que niñas y niños aprendan a interactuar con IA de manera ética y divertida.'
+ogImage: '/assets/og-ai-robot-friend.png'
+lang: 'es'
+
 ---
 
 <BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
@@ -78,93 +85,102 @@ const siteUrl = "https://kidslab.lat/mi-primer-amigo-robot"; // <- canónico en 
   ></div>
 
   <!-- HERO -->
-  <section id="hero-ai" class="relative overflow-hidden bg-purple-50 pt-1 md:pt-1">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <!-- IZQUIERDA: tira de confianza • titular • cuerpo • UNA CTA -->
-        <div>
-          <!-- Tira de confianza como subtítulo -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur text-kidslab-morado text-xs md:text-sm font-semibold shadow-sm">
-            <span class="inline-flex items-center gap-1">
-              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> En Vivo
-            </span>
-            <span class="opacity-40">•</span>
-            <span class="inline-flex items-center gap-1">
-              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Guiado
-            </span>
-            <span class="opacity-40">•</span>
-            <span class="inline-flex items-center gap-1">
-              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Garantía de reembolso
-            </span>
-          </div>
-
-          <!-- Titular en F (Lemon Bird) -->
-          <h1 class="mt-3 font-lemon text-4xl md:text-5xl lg:text-6xl leading-tight text-kidslab-morado">
-            <span class="block">Convierte el tiempo en el celular en habilidades para el futuro</span>
-            <span class="block">— impulsado con IA!</span>
-          </h1>
-
-          <!-- Cuerpo (una línea, enfoque padres) -->
-          <p class="mt-4 text-lg md:text-xl text-gray-800 max-w-xl">
-            Curso guiado de 8 sesiones donde tu hijo (13–17) creará un asistente de IA amigable y aprenderá a usar la tecnología con confianza — siempre acompañado por un instructor humano.
-          </p>
-
-          <!-- Tarjeta de oferta con la ÚNICA CTA -->
-          <div class="mt-6 max-w-md">
-            <div class="bg-white border-2 border-orange-400 rounded-xl p-5 shadow-md text-center">
-              <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-1">
-                Precio especial de lanzamiento
-              </p>
-              <p class="text-3xl font-extrabold text-orange-700">
-                $75 <span class="text-lg font-bold">USD</span>
-              </p>
-              <p class="text-sm text-gray-800 mt-1">
-                por estudiante — solo <span id="seat-count" class="font-bold text-orange-600">8</span> cupos disponibles
-              </p>
-
-              <div class="mt-5">
-                <ModalWhatsAppLeadForm>
-                  <!-- Fallback: si JS está deshabilitado, salta a #get-info -->
-                  <a
-                    id="cta-reserve-offer"
-                    href="#get-info"
-                    class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold text-lg hover:opacity-95 transition inline-flex items-center gap-2"
-                    aria-label="Reserva tu cupo por WhatsApp"
-                  >
-                    <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
-                    Reserva tu cupo
-                  </a>
-                </ModalWhatsAppLeadForm>
-              </div>
-            </div>
-          </div>
-
-          <!-- contador de cupos -->
-          <script is:inline>
-            (function(){
-              var sc = document.getElementById('seat-count');
-              if (sc) sc.textContent = 8; // TODO: enlazar a valor real si lo tienes
-            })();
-          </script>
+<section id="hero-ai" class="relative overflow-hidden bg-purple-50 pt-1 md:pt-1">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <!-- IZQUIERDA: tira de confianza • (imagen móvil) • titular • cuerpo • ÚNICA CTA -->
+      <div>
+        <!-- Tira de confianza -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur text-kidslab-morado text-xs md:text-sm font-semibold shadow-sm">
+          <span class="inline-flex items-center gap-1">
+            <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> En Vivo
+          </span>
+          <span class="opacity-40">•</span>
+          <span class="inline-flex items-center gap-1">
+            <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Guiado
+          </span>
+          <span class="opacity-40">•</span>
+          <span class="inline-flex items-center gap-1">
+            <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> 1 Clase de prueba gratis
+          </span>
         </div>
 
-        <!-- DERECHA: PNG transparente (sin marco) -->
-        <div class="relative">
-          <!-- brillo suave detrás del PNG -->
+        <!-- Imagen SOLO en móvil (entre tira y titular) -->
+        <div class="mt-6 md:hidden relative flex justify-center overflow-hidden max-w-full">
           <div class="absolute -inset-6 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[3rem]"></div>
-
           <img
             src="/assets/ai-friend-hero-transparent.png"
             alt="Adolescente colaborando con un asistente de IA estilo pulpo, en el estilo de Kidslab"
-            class="w-full h-auto max-h-[520px] object-contain select-none"
+            class="w-64 sm:w-72 h-auto object-contain select-none"
             loading="eager"
-            width="1200"
-            height="800"
+            width="800" height="540"
           />
         </div>
+
+        <!-- Titular -->
+        <h1 class="mt-3 font-lemon text-3xl md:text-5xl lg:text-6xl leading-tight text-kidslab-morado">
+          <span class="block">Convierte el tiempo en pantalla en habilidades del futuro — con IA</span>
+        </h1>
+
+        <!-- Cuerpo -->
+        <p class="mt-4 text-lg md:text-xl text-gray-800 max-w-xl">
+          Curso guiado de 8 sesiones donde tu hijo (13–17) creará un asistente de IA amigable y aprenderá a usar la tecnología con confianza — siempre acompañado por un instructor humano.
+        </p>
+
+        <!-- Tarjeta de oferta + ÚNICA CTA -->
+        <div class="mt-6 max-w-md">
+          <div class="bg-white border-2 border-orange-400 rounded-xl p-5 shadow-md text-center">
+            <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-1">
+              Precio especial de lanzamiento
+            </p>
+            <p class="text-3xl font-extrabold text-orange-700">
+              $75 <span class="text-lg font-bold">USD</span>
+            </p>
+            <p class="text-sm text-gray-800 mt-1">
+              por estudiante — solo <span id="seat-count" class="font-bold text-orange-600">8</span> cupos disponibles
+            </p>
+
+            <div class="mt-5">
+              <ModalWhatsAppLeadFormES>
+                <!-- Fallback: si JS está deshabilitado, salta a #get-info -->
+                <a
+                  id="cta-reserve-offer"
+                  href="#get-info"
+                  class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold text-lg hover:opacity-95 transition inline-flex items-center gap-2"
+                  aria-label="Reserva tu cupo por WhatsApp"
+                >
+                  <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+                  Reserva tu cupo
+                </a>
+              </ModalWhatsAppLeadFormES>
+            </div>
+          </div>
+        </div>
+
+        <!-- contador de cupos -->
+        <script is:inline>
+          (function(){
+            var sc = document.getElementById('seat-count');
+            if (sc) sc.textContent = 8; // TODO: enlazar a valor real si aplica
+          })();
+        </script>
+      </div>
+
+      <!-- DERECHA: Imagen SOLO en escritorio -->
+   <div class="relative hidden md:block overflow-hidden">
+        <div class="absolute -inset-6 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[3rem]"></div>
+        <img
+          src="/assets/ai-friend-hero-transparent.png"
+          alt="Adolescente colaborando con un asistente de IA estilo pulpo, en el estilo de Kidslab"
+          class="w-full h-auto max-h-[520px] object-contain select-none"
+          loading="eager"
+          width="1200"
+          height="800"
+        />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- PARA PADRES -->
   <section id="parents" class="bg-white py-20 px-6">
@@ -179,9 +195,9 @@ const siteUrl = "https://kidslab.lat/mi-primer-amigo-robot"; // <- canónico en 
 
     <div class="max-w-6xl mx-auto text-center mb-12">
       <h2 class="text-3xl md:text-5xl font-lemon text-kidslab-naranja font-bold mb-4 flex items-center justify-center gap-2">
-        <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja text-2xl md:text-3xl" aria-hidden="true"></iconify-icon>
-        Potencia el pensamiento a tu hijo — una IA que inspira!
-      </h2>
+  <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja text-2xl md:text-3xl" aria-hidden="true"></iconify-icon>
+  Potencia el pensamiento de tus hijos — una IA que inspira.
+</h2>
       <p class="text-lg text-gray-700 max-w-3xl mx-auto">
         Partimos de los valores de tu familia: seguridad, amabilidad y responsabilidad. Luego ayudamos a los adolescentes a usar la IA como un <em>apoyo</em> — para pensar, crear y comunicarse — nunca como atajo ni como sustituto de la conexión humana.
       </p>
@@ -373,11 +389,11 @@ const siteUrl = "https://kidslab.lat/mi-primer-amigo-robot"; // <- canónico en 
             Cupos limitados — solo 8 estudiantes por grupo
           </h2>
           <p class="mt-2 text-sm text-gray-700">
-            Garantía de satisfacción 100% — reembolso total si no estás conforme después de la primera sesión.
-          </p>
+  Primera clase gratuita — te inscribes solo si te convence.
+</p>
 
           <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
-            <ModalWhatsAppLeadForm>
+            <ModalWhatsAppLeadFormES>
               <!-- Fallback: si JS está deshabilitado, salta a #get-info -->
               <a
                 id="cta-reserve-bottom"
@@ -388,7 +404,7 @@ const siteUrl = "https://kidslab.lat/mi-primer-amigo-robot"; // <- canónico en 
                 <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
                 Reserva tu cupo
               </a>
-            </ModalWhatsAppLeadForm>
+            </ModalWhatsAppLeadFormES>
             <a
               id="cta-parent-info-bottom"
               href="#parents"

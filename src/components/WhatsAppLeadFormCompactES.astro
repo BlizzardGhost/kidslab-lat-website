@@ -1,0 +1,80 @@
+---
+/* Formulario compacto en modal – versión en español */
+---
+
+<div data-whatsapp-form-root>
+  <form data-whatsapp-form
+        class="w-full flex flex-col items-stretch gap-3"
+        aria-label="Reserva tu cupo por WhatsApp"
+        novalidate>
+    <!-- Nombre -->
+    <input name="name" type="text" required autocomplete="name" placeholder="Tu nombre"
+           class="w-full rounded-full border border-gray-300 bg-white p-3 px-5
+                  focus:outline-none focus:ring-2 focus:ring-kidslab-celeste" />
+
+    <!-- País + Teléfono -->
+    <div class="flex gap-2">
+      <select name="countryCode" required aria-label="Código de país"
+              class="w-26 rounded-full border border-gray-300 bg-white p-3 px-4
+                     focus:outline-none focus:ring-2 focus:ring-kidslab-celeste">
+        <option value="57">🇨🇴 +57</option>
+        <option value="503" selected>🇸🇻 +503</option>
+        <option value="1">🇺🇸 +1</option>
+      </select>
+
+      <input name="phone" type="tel" required inputmode="tel" autocomplete="tel" placeholder="Tu número de WhatsApp"
+             class="flex-1 rounded-full border border-gray-300 bg-white p-3 px-5
+                    focus:outline-none focus:ring-2 focus:ring-kidslab-celeste" />
+    </div>
+
+    <!-- Botón enviar -->
+    <button type="button" data-send
+            class="w-full rounded-full bg-kidslab-naranja px-6 py-3 font-bold text-white
+                   hover:opacity-95 transition">
+      ENVIAR
+    </button>
+
+    <input type="hidden" name="course" value="ai-robot-friend" />
+  </form>
+</div>
+
+<!-- Script inline para evitar hoisting -->
+<script is:inline>
+  const root = document.currentScript.previousElementSibling;
+  const form = root.querySelector('[data-whatsapp-form]');
+  const btn  = root.querySelector('[data-send]');
+
+  form.addEventListener('submit', (e) => e.preventDefault());
+
+  btn.addEventListener('click', () => {
+    const fd = new FormData(form);
+    const name   = (fd.get('name') || '').toString().trim();
+    const code   = (fd.get('countryCode') || '').toString();
+    const phone  = (fd.get('phone') || '').toString().trim();
+    const course = (fd.get('course') || 'ai-robot-friend').toString();
+
+    if (!name || !phone) return;
+
+    // 1) Abrir WhatsApp
+    const academyNumber = '50378258472';
+    const message = encodeURIComponent(
+      `Hola! Mi nombre es ${name}. Mi número es +${code} ${phone}. ` +
+      `Estoy interesad@ en los cursos de Kidslab (${course}). ¿Me puedes compartir más información?`
+    );
+    const whatsappUrl = `https://wa.me/${academyNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank', 'noopener');
+
+    // 2) Webhook
+    fetch('https://eoj8cb91g0he9hd.m.pipedream.net', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, countryCode: code, phone, course }),
+      keepalive: true
+    }).catch(() => {});
+
+    // 3) Redirigir a la página de gracias en español
+    setTimeout(() => {
+      window.location.href = '/es/gracias';
+    }, 900);
+  });
+</script>
