@@ -6,32 +6,36 @@ import WhatsAppLeadForm from '../../components/WhatsAppLeadForm.astro';
 <BaseLayout lang="es">
   <main class="bg-white text-gray-800 font-sans">
     <section class="w-full overflow-hidden bg-white">
-      <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-6 md:py-10">
-        <!-- Left Text Section -->
-        <div class="w-full md:w-1/3 mb-8 md:mb-0 md:pr-8">
-          <h1 class="font-lemon text-4xl md:text-3xl text-kidslab-naranja leading-tight mb-4">
-            Aprendizaje humano‑primero<br /><p class="text-7xl md:text-6xl">con IA</p>
-          </h1>
-          <p class="text-base md:text-lg text-gray-800 mb-6">
-            Un laboratorio seguro y alegre donde niñas y niños aprenden a usar la tecnología con empatía, creatividad y propósito.
-            Nuestros cursos son <span class="font-semibold">impulsados por IA</span> y guiados por mentores humanos — hechos en LatAm para familias de todas partes.
-          </p>
-          <a href="/es#get-info" class="inline-block bg-kidslab-naranja text-white font-bold py-3 px-6 rounded-full hover:bg-kidslab-amarillo transition">
-            Agenda una llamada gratuita
-          </a>
-        </div>
+  <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-6 md:py-10">
+    <!-- Left Text Section -->
+    <div class="w-full md:w-1/3 mb-8 md:mb-0 md:pr-8">
+      <h1 class="font-lemon text-4xl md:text-3xl text-kidslab-naranja leading-tight mb-4">
+        Aprendizaje humano-primero<br />
+        <span class="text-7xl md:text-6xl block">con IA</span>
+      </h1>
+      <p class="text-base md:text-lg text-gray-800 mb-6">
+        Un laboratorio seguro y alegre donde niñas y niños aprenden a usar la tecnología con empatía, creatividad y propósito.
+        Nuestros cursos son <span class="font-semibold">impulsados por IA</span> y guiados por mentores humanos — hechos en LatAm para familias de todas partes.
+      </p>
+      <a href="/es#get-info"
+   class="inline-block bg-kidslab-naranja text-white font-bold py-3 px-6 rounded-full hover:bg-kidslab-amarillo transition"
+   onclick="try{ fbq('track','Contact',{ source:'HomepageHero', locale:'es' }); }catch(e){}">
+  Agenda una llamada gratuita
+</a>
+    </div>
 
-        <!-- Right Image Section -->
-        <div class="w-full md:w-2/3 flex justify-center">
-          <img
-            src="/assets/hero-banner-kidslab.webp"
-            alt="Kidslab — aprendizaje creativo de tecnología con corazón"
-            class="w-full max-w-[100%] h-auto object-contain"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
+    <!-- Right Image Section -->
+    <div class="w-full md:w-2/3 flex justify-center">
+      <img
+        src="/assets/hero-banner-kidslab.webp"
+        alt="Kidslab — aprendizaje creativo de tecnología con corazón"
+        class="w-full max-w-[520px] md:max-w-[600px] lg:max-w-[680px] h-auto object-contain mx-auto"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
 
     <!-- Certified Logos Strip -->
     <section class="py-12 bg-white">

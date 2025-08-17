@@ -6,31 +6,35 @@ import WhatsAppLeadForm from '../../components/WhatsAppLeadForm.astro';
 <BaseLayout lang="en">
   <main class="bg-white text-gray-800 font-sans">
     <section class="w-full overflow-hidden bg-white">
-      <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-6 md:py-10">
-        <!-- Left Text Section -->
-        <div class="w-full md:w-1/3 mb-8 md:mb-0 md:pr-8">
-          <h1 class="font-lemon text-4xl md:text-3xl text-kidslab-naranja leading-tight mb-4">
-            Human‑First Learning<br /><p class="text-7xl md:text-6xl">with AI</p>
-          </h1>
-          <p class="text-base md:text-lg text-gray-800 mb-6">
-            A safe, joyful lab where kids learn to use technology with empathy, creativity, and real‑world purpose — built in LatAm for families everywhere.
-          </p>
-          <a href="/en#get-info" class="inline-block bg-kidslab-naranja text-white font-bold py-3 px-6 rounded-full hover:bg-kidslab-amarillo transition">
-            Meet a mentor — free intro call
-          </a>
-        </div>
+  <div class="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-6 md:py-10">
+    <!-- Left Text Section -->
+    <div class="w-full md:w-1/3 mb-8 md:mb-0 md:pr-8">
+      <h1 class="font-lemon text-4xl md:text-3xl text-kidslab-naranja leading-tight mb-4">
+        Human-First Learning<br />
+        <span class="text-7xl md:text-6xl block">with AI</span>
+      </h1>
+      <p class="text-base md:text-lg text-gray-800 mb-6">
+        A safe, joyful lab where kids learn to use technology with empathy, creativity, and real-world purpose — built in LatAm for families everywhere.
+      </p>
+      <a href="/en#get-info"
+   class="inline-block bg-kidslab-naranja text-white font-bold py-3 px-6 rounded-full hover:bg-kidslab-amarillo transition"
+   onclick="try{ fbq('track','Contact',{ source:'HomepageHero', locale:'en' }); }catch(e){}">
+  Meet a mentor — free intro call
+</a>
+    </div>
 
-        <!-- Right Image Section -->
-        <div class="w-full md:w-2/3 flex justify-center">
-          <img
-            src="/assets/hero-banner-kidslab.webp"
-            alt="Kids exploring creative technology at Kidslab"
-            class="w-full max-w-[100%] h-auto object-contain"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
+    <!-- Right Image Section -->
+    <div class="w-full md:w-2/3 flex justify-center">
+      <img
+        src="/assets/hero-banner-kidslab.webp"
+        alt="Kids exploring creative technology at Kidslab"
+        class="w-full max-w-[520px] md:max-w-[600px] lg:max-w-[680px] h-auto object-contain mx-auto"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
 
     <!-- Certified Logos Strip -->
     <section class="py-12 bg-white">

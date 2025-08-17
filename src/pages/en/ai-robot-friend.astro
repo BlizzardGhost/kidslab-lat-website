@@ -5,9 +5,10 @@ import ModalWhatsAppLeadFormEN from "../../components/ModalWhatsAppLeadFormEN.as
 
 const lang = "en";
 const title = "Give Your Teen a Safe Place to Explore AI — Guided, Creative, Human | Kidslab";
-const description = "An 8‑session, live online course where teens (13–17) build a friendly AI companion — learning to use technology safely, ethically, and with confidence, guided by caring instructors.";
-const ogImage = "/assets/ai-robot-friend-og.png"; // <- use your final OG image
-const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
+const description = "An 8-session, live online course where teens (13–17) build a friendly AI companion — learning to use technology safely, ethically, and with confidence, guided by caring instructors.";
+
+const siteUrl = "https://kidslab.lat/en/ai-robot-friend"; // canonical for EN
+const ogImage = "/assets/ai-robot-friend-og.png";
 ---
 
 <BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
@@ -21,147 +22,131 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Perf -->
-    <link rel="preload" as="image" href="/assets/ai-friend-hero.png" imagesrcset="/assets/ai-friend-hero.png 1x" />
-    <link rel="preconnect" href="https://api.iconify.design" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Perf: preload the image you actually render -->
+    <link rel="preload" as="image" href="/assets/ai-friend-hero-transparent.png" />
 
-    <!-- Org JSON‑LD -->
+    <!-- Org JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Kidslab LATAM",
         "url": "https://kidslab.lat",
-        "logo": "https://kidslab.lat/assets/logo.png",
+        "logo": "https://kidslab.lat/assets/branding/logo.svg",
         "sameAs": ["https://www.instagram.com/kidslab.lat","https://www.facebook.com/kidslab.lat"]
       }
     </script>
 
-    <!-- Course JSON‑LD -->
+    <!-- Course JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "My AI Robot Friend — Safe, Guided AI for Teens",
-        "description": "Live 8‑session course where teens (13–17) build a friendly AI companion and learn to use AI safely, ethically, and creatively.",
+        "description": "Live 8-session course where teens (13–17) build a friendly AI companion and learn to use AI safely, ethically, and creatively.",
         "provider": { "@type": "Organization", "name": "Kidslab LATAM", "sameAs": "https://kidslab.lat" },
         "audience": { "@type": "EducationalAudience", "educationalRole": "student" },
         "inLanguage": "en"
       }
     </script>
-
-    <!-- Meta Pixel (replace ID) -->
-    <script is:inline>
-      !(function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)})(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'YOUR_PIXEL_ID_HERE');
-      fbq('track', 'PageView');
-      fbq('track', 'ViewContent', {content_name: 'AI Robot Friend LP', content_category: 'Course'});
-    </script>
-    <noscript><img alt="" height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
-    /></noscript>
   </Fragment>
 
   <!-- LP-only top background so the pill sits on lilac instead of body white -->
   <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 h-32 md:h-36 bg-purple-50 -z-10"></div>
 
   <!-- HERO -->
-<section id="hero-ai" class="hero relative overflow-hidden bg-purple-50 pt-1 md:pt-1">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <div class="grid md:grid-cols-2 gap-10 items-center">
+  <section id="hero-ai" class="hero relative overflow-hidden bg-purple-50 pt-1 md:pt-1">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
 
-      <!-- LEFT -->
-      <div>
-        <!-- Trust strip -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur text-kidslab-morado text-xs md:text-sm font-semibold shadow-sm">
-          <span class="inline-flex items-center gap-1">
-            <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Live &amp; Guided
-          </span>
-          <span class="opacity-40">•</span>
-          <span class="inline-flex items-center gap-1">
-            <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Parent‑Approved
-          </span>
-          <span class="opacity-40">•</span>
-          <span class="inline-flex items-center gap-1">
-            <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> 1 Free Class Guarantee
-          </span>
+        <!-- LEFT -->
+        <div>
+          <!-- Trust strip -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur text-kidslab-morado text-xs md:text-sm font-semibold shadow-sm">
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Live &amp; Guided
+            </span>
+            <span class="opacity-40">•</span>
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Parent-Approved
+            </span>
+            <span class="opacity-40">•</span>
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> 1 Free Class Guarantee
+            </span>
+          </div>
+
+          <!-- MOBILE-ONLY HERO IMAGE -->
+          <div class="mt-5 md:hidden relative">
+            <div class="absolute -inset-3 -z-10 blur-2xl opacity-25 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-3xl"></div>
+            <img
+              src="/assets/ai-friend-hero-transparent.png"
+              alt="Teen collaborating with a friendly octopus-style AI helper in Kidslab style"
+              class="mx-auto w-3/4 max-w-xs h-auto max-h-56 object-contain select-none"
+              loading="eager"
+              width="800" height="600"
+            />
+          </div>
+
+          <!-- Headline -->
+          <h1 class="mt-3 font-lemon text-3xl md:text-5xl lg:text-6xl leading-tight text-kidslab-morado text-center md:text-left">
+            <span class="block">Turn screen time into future&nbsp;skills — safely with A.I.</span>
+          </h1>
+
+          <!-- Body -->
+          <p class="mt-4 text-lg md:text-xl text-gray-800 max-w-xl">
+            A guided, 8-session course where your teen (13–17) builds a friendly AI helper and learns to use tech confidently — always with a real instructor.
+          </p>
+
+          <!-- Offer card + SINGLE CTA -->
+          <div class="mt-6 max-w-md">
+            <div class="bg-white border-2 border-orange-400 rounded-xl p-5 shadow-md text-center">
+              <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-1">
+                Limited-time launch price
+              </p>
+              <p class="text-3xl font-extrabold text-orange-700">
+                $75 <span class="text-lg font-bold">USD</span>
+              </p>
+              <p class="text-sm text-gray-800 mt-1">
+                per student — only <span id="seat-count" class="font-bold text-orange-600">8</span> spots left
+              </p>
+
+              <div class="mt-5">
+                <ModalWhatsAppLeadFormEN>
+                  <a
+                    id="cta-reserve-offer"
+                    href="#get-info"
+                    class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold text-lg hover:opacity-95 transition inline-flex items-center gap-2"
+                    aria-label="Reserve your spot via WhatsApp"
+                  >
+                    <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+                    Reserve Your Spot
+                  </a>
+                </ModalWhatsAppLeadFormEN>
+              </div>
+            </div>
+          </div>
+
+          <script is:inline>
+            (function(){ var sc = document.getElementById('seat-count'); if (sc) sc.textContent = 8; })();
+          </script>
         </div>
+        <!-- /LEFT -->
 
-        <!-- MOBILE‑ONLY HERO IMAGE (smaller, between trust strip and headline) -->
-        <div class="mt-5 md:hidden relative">
-          <div class="absolute -inset-3 -z-10 blur-2xl opacity-25 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-3xl"></div>
+        <!-- RIGHT visual (desktop/tablet only) -->
+        <div class="relative hidden md:block">
+          <div class="absolute -inset-6 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[3rem]"></div>
           <img
             src="/assets/ai-friend-hero-transparent.png"
-            alt="Teen collaborating with a friendly octopus‑style AI helper in Kidslab style"
-            class="mx-auto w-3/4 max-w-xs h-auto max-h-56 object-contain select-none"
-            loading="eager"
-            width="800" height="600"
+            alt="Teen collaborating with a friendly octopus-style AI helper in Kidslab style"
+            class="w-full h-auto max-h-[520px] object-contain select-none"
+            loading="eager" width="1200" height="800"
           />
         </div>
 
-        <!-- Headline -->
-        <h1 class="mt-3 font-lemon text-3xl md:text-5xl lg:text-6xl leading-tight text-kidslab-morado text-center md:text-left">
-  <span class="block">Turn screen time into future&nbsp;skills — safely with A.I.</span>
-</h1>
-
-        <!-- Body -->
-        <p class="mt-4 text-lg md:text-xl text-gray-800 max-w-xl">
-          A guided, 8‑session course where your teen (13–17) builds a friendly AI helper and learns to use tech confidently — always with a real instructor.
-        </p>
-
-        <!-- Offer card + SINGLE CTA -->
-        <div class="mt-6 max-w-md">
-          <div class="bg-white border-2 border-orange-400 rounded-xl p-5 shadow-md text-center">
-            <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-1">
-              Limited‑time launch price
-            </p>
-            <p class="text-3xl font-extrabold text-orange-700">
-              $75 <span class="text-lg font-bold">USD</span>
-            </p>
-            <p class="text-sm text-gray-800 mt-1">
-              per student — only <span id="seat-count" class="font-bold text-orange-600">8</span> spots left
-            </p>
-
-            <div class="mt-5">
-              <ModalWhatsAppLeadFormEN>
-                <a
-                  id="cta-reserve-offer"
-                  href="#get-info"
-                  class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold text-lg hover:opacity-95 transition inline-flex items-center gap-2"
-                  aria-label="Reserve your spot via WhatsApp"
-                >
-                  <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
-                  Reserve Your Spot
-                </a>
-              </ModalWhatsAppLeadFormEN>
-            </div>
-          </div>
-        </div>
-
-        <script is:inline>
-          (function(){ var sc = document.getElementById('seat-count'); if (sc) sc.textContent = 8; })();
-        </script>
       </div>
-      <!-- /LEFT -->
-
-      <!-- RIGHT visual (desktop/tablet only) -->
-      <div class="relative hidden md:block">
-        <div class="absolute -inset-6 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[3rem]"></div>
-        <img
-          src="/assets/ai-friend-hero-transparent.png"
-          alt="Teen collaborating with a friendly octopus‑style AI helper in Kidslab style"
-          class="w-full h-auto max-h-[520px] object-contain select-none"
-          loading="eager" width="1200" height="800"
-        />
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- PARENT REASSURANCE -->
   <section id="parents" class="bg-white py-20 px-6">
@@ -197,8 +182,8 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
       </div>
       <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
         <iconify-icon icon="ph:rocket-launch" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
-        <h3 class="font-bold text-lg mb-2">Future‑ready skills</h3>
-        <p class="text-gray-600 text-sm">Real‑world tech know‑how for school and life.</p>
+        <h3 class="font-bold text-lg mb-2">Future-ready skills</h3>
+        <p class="text-gray-600 text-sm">Real-world tech know-how for school and life.</p>
       </div>
     </div>
   </section>
@@ -239,7 +224,7 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
           <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">5</span>
           <iconify-icon icon="ph:lightbulb" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
           <h3 class="font-bold text-lg mb-1">Learn New Skills</h3>
-          <p class="text-gray-700 text-sm">Research, creative prompts, and mini‑labs you can trust.</p>
+          <p class="text-gray-700 text-sm">Research, creative prompts, and mini-labs you can trust.</p>
         </div>
         <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
           <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">6</span>
@@ -279,7 +264,7 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
         <ul class="mt-4 space-y-2 leading-relaxed">
           <li>Create something that’s truly theirs.</li>
           <li>Express themselves with a friendly AI helper.</li>
-          <li>Grow creativity, problem‑solving, and communication.</li>
+          <li>Grow creativity, problem-solving, and communication.</li>
         </ul>
       </div>
     </div>
@@ -392,7 +377,7 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
 
           <div class="mt-4 flex items-center gap-4 justify-center md:justify-start text-kidslab-amarillo/80">
             <iconify-icon icon="ph:sparkle" class="text-2xl" aria-hidden="true"></iconify-icon>
-            <span class="text-sm text-gray-600">Hands‑on • Guided • Parent‑friendly</span>
+            <span class="text-sm text-gray-600">Hands-on • Guided • Parent-friendly</span>
             <iconify-icon icon="ph:sparkle" class="text-2xl" aria-hidden="true"></iconify-icon>
           </div>
         </div>
@@ -408,18 +393,45 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
     </div>
   </section>
 
-  <!-- UTIL: Tracking + UTM + micro A/B (scoped to avoid globals) -->
+  <!-- UTIL: Tracking (single, deduped) -->
   <script is:inline>
-    (() => {
-      // A/B headline
-      try {
-        const variant = Math.random() < 0.5 ? 'a' : 'b';
-        const a = document.querySelector('[data-ab="headline-a"]');
-        const b = document.querySelector('[data-ab="headline-b"]');
-        if (variant === 'b' && a && b) { a.classList.add('hidden'); b.classList.remove('hidden'); }
-      } catch(e){}
+    (function () {
+      const COURSE = {
+        name_en: 'My First AI Robot Friend',
+        name_es: 'Mi Primer Amigo Robot',
+        slug: 'ai-robot-friend',
+        category: 'AI'
+      };
 
-      // UTM helper
+      const locale = location.pathname.startsWith('/es') ? 'es' : 'en';
+
+      // ViewContent once on load
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.fbq) {
+          window.fbq('track', 'ViewContent', {
+            content_name: locale === 'es' ? COURSE.name_es : COURSE.name_en,
+            content_category: COURSE.category,
+            content_ids: [COURSE.slug],
+            content_type: 'course',
+            locale
+          });
+          window.fbq('trackCustom', `VC_${COURSE.slug}`, { locale });
+        }
+      });
+
+      // Contact on any WhatsApp or internal CTA click
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest('a[href*="wa.me"], a[href*="#get-info"]');
+        if (!a || !window.fbq) return;
+        window.fbq('track', 'Contact', {
+          content_name: locale === 'es' ? COURSE.name_es : COURSE.name_en,
+          contact_method: a.href.includes('wa.me') ? 'WhatsApp' : 'InternalCTA',
+          source: 'LP',
+          course_slug: COURSE.slug
+        });
+      }, true);
+
+      // UTM passthrough + lead helper
       function currentUtmQuery() {
         const params = new URLSearchParams(window.location.search);
         const keep = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
@@ -427,46 +439,31 @@ const siteUrl = "https://kidslab.lat/ai-robot-friend"; // canonical
         keep.forEach(k => { const v = params.get(k); if (v) kept.set(k, v); });
         return kept.toString();
       }
-
-      // Pixel track
-      function trackLead(source){
-        try { window.fbq && window.fbq('track','Lead', {source: source || 'cta'}); } catch(e){}
-      }
-
-      // Attach tracking to CTAs (include hero CTA)
-      ['cta-reserve-top','cta-reserve-bottom','cta-parent-info-top','cta-parent-info-bottom','cta-reserve-offer'].forEach(id=>{
+      ['cta-reserve-offer','cta-reserve-bottom','cta-parent-info-bottom'].forEach(id => {
         const el = document.getElementById(id);
         if (!el) return;
         el.addEventListener('click', () => {
           const qs = currentUtmQuery();
           if (qs) {
             const href = el.getAttribute('href') || '';
-            if (!href.startsWith('#')) {
-              el.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs);
-            }
+            if (!href.startsWith('#')) el.setAttribute('href', href + (href.includes('?') ? '&' : '?') + qs);
           }
-          trackLead(id);
         });
       });
 
-      // Prefill WhatsApp message (idempotent)
-      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(link => {
-        try {
-          const msg = encodeURIComponent("Hi, I want to reserve a seat for 'My AI Robot Friend' at the $75 launch price.");
-          const url = new URL(link.href);
-          if (!url.searchParams.has('text')) {
-            url.searchParams.set('text', msg);
-            link.href = url.toString();
-          }
-        } catch(e){}
-      });
-
-      // Optional form tracking
-      document.addEventListener('submit', (e) => {
+      // WhatsApp form submit -> Lead
+      document.addEventListener('submit', function (e) {
         const form = e.target;
-        if (form && (form.id === 'whatsapp-lead-form' || form.dataset.role === 'whatsapp-lead')) {
-          trackLead('whatsapp_form_submit');
-        }
+        if (!form || (form.id !== 'whatsapp-form' && form.dataset.role !== 'whatsapp-lead')) return;
+        if (!window.fbq) return;
+        const code   = document.getElementById('country-code')?.value || '';
+        const course = document.getElementById('course')?.value || COURSE.slug;
+        window.fbq('track', 'Lead', {
+          content_name: course,
+          lead_type: 'WhatsApp',
+          country_code: code
+        });
+        window.fbq('trackCustom', `Lead_${course}`);
       }, true);
     })();
   </script>

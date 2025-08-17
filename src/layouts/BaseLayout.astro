@@ -47,6 +47,8 @@ src="https://www.facebook.com/tr?id=1347569296974206&ev=PageView&noscript=1"
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://use.typekit.net">
     <link rel="preconnect" href="https://code.iconify.design">
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
 
     <!-- Iconify + Swiper (CDN) -->
     <script type="module" src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -62,8 +64,12 @@ src="https://www.facebook.com/tr?id=1347569296974206&ev=PageView&noscript=1"
 
     <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <link href="https://use.typekit.net/bct8okz.css" rel="stylesheet" />
-  </head>
+  
+  <link href="https://use.typekit.net/bct8okz.css" rel="stylesheet" />
+  <!-- Add this line so LP pages can inject head tags -->
+  <slot name="head" />
+</head>
+
 
   <body class="min-h-screen flex flex-col bg-white text-gray-900 overflow-x-clip">
     <!-- a11y skip link -->
