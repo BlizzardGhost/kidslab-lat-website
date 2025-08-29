@@ -1,12 +1,475 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const lang = 'en';
-const title = 'Python Quest — Kidslab';
-const description = 'Learn Python by building mini‑games. Small groups, playful learning.';
+import WhatsAppLeadForm from "../../components/WhatsAppLeadForm.astro";
+import ModalWhatsAppLeadFormEN from "../../components/ModalWhatsAppLeadFormEN.astro";
+
+const lang = "en";
+const title = "Python Quest — Learn to Code by Creating Mini-Games (On-site or Online) | Kidslab";
+const description = "A 4-month, live course where kids learn Python step-by-step by building fun mini-games. Small groups (max 10), caring mentor, $75/month. On-site Saturdays or Online Tuesdays & Wednesdays.";
+
+const siteUrl = "https://kidslab.lat/en/python-quest"; // canonical for EN
+const ogImage = "/assets/python-quest-og.png";
+
+// WhatsApp CTA
+const WA_NUMBER = "50378258472";
+const WA_TEXT = encodeURIComponent(
+  "Hola Kidslab 👋 Estoy interesado/a en el curso Python Quest para mi hijo(a). ¿Me pueden dar más información?"
+);
+const waLink =
+  `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}` +
+  "&utm_source=website&utm_medium=lp&utm_campaign=pythonquest_aug25";
 ---
-<BaseLayout lang={lang} title={title} description={description}>
-  <section class="max-w-6xl mx-auto px-6 py-20 text-center">
-    <h1 class="text-4xl md:text-5xl font-display font-bold text-kidslab-naranja">Python Quest</h1>
-    <p class="mt-3 text-gray-700">Course page coming soon. Want details now? Tap the WhatsApp button on the home page.</p>
+
+<BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
+
+  <!-- HEAD EXTRAS -->
+  <Fragment slot="head">
+    <link rel="canonical" href={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Perf: preload the image you actually render -->
+    <link rel="preload" as="image" href="/assets/python-quest-hero.png" />
+
+    <!-- Org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kidslab LATAM",
+        "url": "https://kidslab.lat",
+        "logo": "https://kidslab.lat/assets/branding/logo.svg",
+        "sameAs": ["https://www.instagram.com/kidslab.lat","https://www.facebook.com/kidslab.lat"]
+      }
+    </script>
+
+    <!-- Course JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Python Quest — Learn to Code by Creating Mini-Games",
+        "description": "Live, 4-month course where kids learn Python by building mini-games. Small groups (max 10). On-site Saturdays or Online Tuesdays & Wednesdays.",
+        "provider": { "@type": "Organization", "name": "Kidslab LATAM", "sameAs": "https://kidslab.lat" },
+        "audience": { "@type": "EducationalAudience", "educationalRole": "student" },
+        "inLanguage": "en"
+      }
+    </script>
+  </Fragment>
+
+  <!-- LP-only top background so the pill sits on lilac instead of body white -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 h-32 md:h-36 bg-purple-50 -z-10"></div>
+
+  <!-- HERO -->
+  <section id="hero-python" class="hero relative overflow-hidden bg-purple-50 pt-1 md:pt-1">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+
+        <!-- LEFT -->
+        <div>
+          <!-- Trust strip -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur text-kidslab-morado text-xs md:text-sm font-semibold shadow-sm">
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Live &amp; Guided
+            </span>
+            <span class="opacity-40">•</span>
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:account-group" class="text-green-600" aria-hidden="true"></iconify-icon> Small Groups (max 10)
+            </span>
+            <span class="opacity-40">•</span>
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:laptop" class="text-green-600" aria-hidden="true"></iconify-icon> On-site or Online
+            </span>
+          </div>
+
+          <!-- MOBILE-ONLY HERO IMAGE -->
+          <div class="mt-5 md:hidden relative">
+            <div class="absolute -inset-3 -z-10 blur-2xl opacity-25 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-3xl"></div>
+            <img
+              src="/assets/python-quest-hero.png"
+              alt="Kid coding with Kidslab octopus mentor in Python Quest"
+              class="mx-auto w-3/4 max-w-xs h-auto max-h-56 object-contain select-none"
+              loading="eager"
+              width="800" height="600"
+            />
+          </div>
+
+          <!-- Headline -->
+          <h1 class="mt-3 font-lemon text-3xl md:text-5xl lg:text-6xl leading-tight text-kidslab-morado text-center md:text-left">
+            <span class="block">Python Quest: learn to code by creating mini-games</span>
+          </h1>
+
+          <!-- Body -->
+          <p class="mt-4 text-lg md:text-xl text-gray-800 max-w-xl">
+            A playful, 4-month journey where kids build real mini-games while learning Python step-by-step — with a caring mentor and a safe, friendly group.
+          </p>
+
+          <!-- Offer card + SINGLE CTA -->
+          <div class="mt-6 max-w-md">
+            <div class="bg-white border-2 border-orange-400 rounded-xl p-5 shadow-md text-center">
+              <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-1">
+                Tuition
+              </p>
+              <p class="text-3xl font-extrabold text-orange-700">
+                $75 <span class="text-lg font-bold">USD / month</span>
+              </p>
+              <p class="text-sm text-gray-800 mt-1">
+                <strong>Duration:</strong> 4 months · <strong>Groups:</strong> max 10 students
+              </p>
+              <p class="text-sm text-gray-800">
+                <strong>Schedules:</strong> On-site Saturdays • Online Tuesdays &amp; Wednesdays
+              </p>
+
+              <div class="mt-5">
+                <ModalWhatsAppLeadFormEN>
+                  <a
+                    id="cta-reserve-offer"
+                    href={waLink}
+                    class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold text-lg hover:opacity-95 transition inline-flex items-center gap-2"
+                    aria-label="Reserve your spot via WhatsApp"
+                    target="_blank" rel="noopener"
+                  >
+                    <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+                    Reserve a Spot on WhatsApp
+                  </a>
+                </ModalWhatsAppLeadFormEN>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /LEFT -->
+
+        <!-- RIGHT visual (desktop/tablet only) -->
+        <div class="relative hidden md:block">
+          <div class="absolute -inset-6 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[3rem]"></div>
+          <img
+            src="/assets/python-quest-hero.png"
+            alt="Kid coding with Kidslab octopus mentor in Python Quest"
+            class="w-full h-auto max-h-[520px] object-contain select-none"
+            loading="eager" width="1200" height="800"
+          />
+        </div>
+
+      </div>
+    </div>
   </section>
+
+  <!-- PARENT REASSURANCE -->
+  <section id="parents" class="bg-white py-20 px-6">
+    <div class="flex justify-center -mt-6 mb-6 pointer-events-none">
+      <img src="/assets/pulpo-ai.png" alt="" class="w-28 h-auto md:w-40 lg:w-48 animate-float-up drop-shadow" loading="lazy" />
+    </div>
+
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-lemon text-kidslab-naranja font-bold mb-4 flex items-center justify-center gap-2">
+        <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja text-2xl md:text-3xl" aria-hidden="true"></iconify-icon>
+        A safe, guided space where tech meets empathy.
+      </h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        We put human connection first. Kids learn real coding, problem-solving, and creativity — always with a friendly mentor, clear goals, and kind teamwork.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:shield-check" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Safe &amp; supervised</h3>
+        <p class="text-gray-600 text-sm">Live classes. Friendly guidance. No toxic spaces.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:brain" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Logic + creativity</h3>
+        <p class="text-gray-600 text-sm">We mix algorithms with storytelling, art, and game design.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:users-three" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Small groups</h3>
+        <p class="text-gray-600 text-sm">Max 10 students — every child gets attention and feedback.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:rocket-launch" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Future-ready skills</h3>
+        <p class="text-gray-600 text-sm">A strong base in Python (language of AI) for tomorrow’s world.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (Python path) -->
+  <section class="bg-purple-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-kidslab-morado font-display text-center">
+        From first line of code to playable mini-games
+      </h2>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">1</span>
+          <iconify-icon icon="ph:code" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Python Basics</h3>
+          <p class="text-gray-700 text-sm">Variables, input/output, and simple logic.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">2</span>
+          <iconify-icon icon="ph:git-commit" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Decisions &amp; Loops</h3>
+          <p class="text-gray-700 text-sm">If/else, while/for — the core of game rules.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">3</span>
+          <iconify-icon icon="ph:function" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Functions &amp; Data</h3>
+          <p class="text-gray-700 text-sm">Reusable actions, lists, and scoring.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">4</span>
+          <iconify-icon icon="ph:game-controller" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Mini-Game #1</h3>
+          <p class="text-gray-700 text-sm">Build your first playable project.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">5</span>
+          <iconify-icon icon="ph:clock-countdown" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Timers &amp; Events</h3>
+          <p class="text-gray-700 text-sm">Interactions, difficulty, and polish.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">6</span>
+          <iconify-icon icon="ph:squares-four" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Design Elements</h3>
+          <p class="text-gray-700 text-sm">Simple graphics/feedback for player fun.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">7</span>
+          <iconify-icon icon="ph:star" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Mini-Game #2</h3>
+          <p class="text-gray-700 text-sm">A second project with new mechanics.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">8</span>
+          <iconify-icon icon="ph:megaphone-simple" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Show &amp; Share</h3>
+          <p class="text-gray-700 text-sm">Family showcase of their mini-games.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display tracking-tight">For Parents</h3>
+        <ul class="mt-4 space-y-2 leading-relaxed">
+          <li>Supervised lessons with real teachers and small groups.</li>
+          <li>Practical Python skills kids can apply beyond class.</li>
+          <li>Clear structure, progress, and a friendly community.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display tracking-tight">For Kids</h3>
+        <ul class="mt-4 space-y-2 leading-relaxed">
+          <li>Build mini-games you can play and share.</li>
+          <li>Grow logical thinking, creativity, and confidence.</li>
+          <li>Learn Python — the language behind today’s tech.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="bg-purple-50 py-12">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold text-kidslab-morado mb-6">What parents are saying</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <blockquote class="bg-white rounded-lg p-4 shadow">
+          <p class="text-gray-800 italic">“My daughter finally enjoys coding — she shows us every mini-game.”</p>
+          <footer class="mt-2 text-sm text-gray-600">— Marcela A., San Salvador</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg p-4 shadow">
+          <p class="text-gray-800 italic">“Small groups make a huge difference. He gets real help.”</p>
+          <footer class="mt-2 text-sm text-gray-600">— José R., Santa Tecla</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg p-4 shadow">
+          <p class="text-gray-800 italic">“Kidslab is warm and professional — exactly what we hoped for.”</p>
+          <footer class="mt-2 text-sm text-gray-600">— Andrea M., Antiguo Cuscatlán</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display mb-6">Common questions from parents</h3>
+      <div class="space-y-5">
+        <details class="group rounded-lg p-4 bg-purple-50">
+          <summary class="cursor-pointer font-semibold text-kidslab-morado">Does my child need experience?</summary>
+          <p class="mt-2 text-gray-800">No. Python Quest starts from zero and builds confidence step by step.</p>
+        </details>
+        <details class="group rounded-lg p-4 bg-purple-50">
+          <summary class="cursor-pointer font-semibold text-kidslab-morado">How many students are in a group?</summary>
+          <p class="mt-2 text-gray-800">We cap groups at 10 students to keep guidance personal and effective.</p>
+        </details>
+        <details class="group rounded-lg p-4 bg-purple-50">
+          <summary class="cursor-pointer font-semibold text-kidslab-morado">Is it online or on-site?</summary>
+          <p class="mt-2 text-gray-800">Both options: On-site Saturdays, or Online Tuesdays & Wednesdays (live sessions).</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- JSON-LD FAQ -->
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"Does my child need experience?","acceptedAnswer":{"@type":"Answer","text":"No. Python Quest starts from zero and builds confidence step by step."}},
+          {"@type":"Question","name":"How many students are in a group?","acceptedAnswer":{"@type":"Answer","text":"We cap groups at 10 students to keep guidance personal and effective."}},
+          {"@type":"Question","name":"Is it online or on-site?","acceptedAnswer":{"@type":"Answer","text":"Both options: On-site Saturdays, or Online Tuesdays & Wednesdays (live sessions)."}}
+        ]
+      }
+    </script>
+  </section>
+
+  <!-- PARENT NOTE -->
+  <section class="bg-orange-50 border-t border-orange-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-orange-700 font-display">
+        “I want my child to learn tech with empathy — not just screens.”
+      </h3>
+      <p class="mt-3 text-gray-800">
+        At Kidslab we mix logic with creativity, so children learn to think, build, and share kindly.
+        Python Quest is their first safe step into real coding — and into a future where tech serves people.
+        <span class="block mt-2 font-semibold">— Kidslab Team</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-gradient-to-b from-purple-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div class="grid md:grid-cols-[1.1fr_.9fr] items-center gap-10">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl md:text-4xl font-bold text-kidslab-morado font-display tracking-tight">
+            Spots go fast — groups are limited to 10 students
+          </h2>
+          <p class="mt-2 text-sm text-gray-700">
+            Choose your mode: <strong>On-site Saturdays</strong> or <strong>Online Tuesdays & Wednesdays</strong>.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+            <ModalWhatsAppLeadFormEN>
+              <a
+                id="cta-reserve-bottom"
+                href={waLink}
+                class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold hover:opacity-95 transition inline-flex items-center gap-2"
+                aria-label="Reserve your spot via WhatsApp"
+                target="_blank" rel="noopener"
+              >
+                <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+                Reserve a Spot on WhatsApp
+              </a>
+            </ModalWhatsAppLeadFormEN>
+            <a
+              id="cta-parent-info-bottom"
+              href="#parents"
+              class="inline-flex items-center gap-2 border-2 border-kidslab-celeste text-kidslab-celeste px-6 py-3 rounded-full font-bold hover:bg-kidslab-celeste hover:text-white transition"
+              aria-label="Read parent information"
+            >
+              <iconify-icon icon="ph:chat-circle-dots" class="text-kidslab-celeste text-xl md:text-lg"></iconify-icon>
+              Parent Info
+            </a>
+          </div>
+
+          <div class="mt-4 flex items-center gap-4 justify-center md:justify-start text-kidslab-amarillo/80">
+            <iconify-icon icon="ph:sparkle" class="text-2xl" aria-hidden="true"></iconify-icon>
+            <span class="text-sm text-gray-600">Hands-on • Guided • Parent-friendly</span>
+            <iconify-icon icon="ph:sparkle" class="text-2xl" aria-hidden="true"></iconify-icon>
+          </div>
+        </div>
+
+        <div class="relative flex justify-center md:justify-end">
+          <div class="absolute -inset-4 -z-10 blur-2xl opacity-25 animate-float-up bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[2rem]"></div>
+          <div class="relative">
+            <img src="/assets/pulpo-ai.png" alt="Kidslab octopus mascot cheering to reserve a spot"
+                 class="w-40 sm:w-48 md:w-56 lg:w-64 h-auto animate-float-up drop-shadow" loading="lazy" width="256" height="256" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTIL: Tracking (single, deduped) -->
+  <script is:inline>
+    (function () {
+      const COURSE = {
+        name_en: 'Python Quest',
+        name_es: 'Python Quest',
+        slug: 'python-quest',
+        category: 'Coding'
+      };
+
+      const locale = location.pathname.startsWith('/es') ? 'es' : 'en';
+
+      // ViewContent once on load
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.fbq) {
+          window.fbq('track', 'ViewContent', {
+            content_name: locale === 'es' ? COURSE.name_es : COURSE.name_en,
+            content_category: COURSE.category,
+            content_ids: [COURSE.slug],
+            content_type: 'course',
+            locale
+          });
+          window.fbq('trackCustom', `VC_${COURSE.slug}`, { locale });
+        }
+      });
+
+      // Contact on any WhatsApp or internal CTA click
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest('a[href*="wa.me"], a#cta-reserve-offer, a#cta-reserve-bottom');
+        if (!a || !window.fbq) return;
+        window.fbq('track', 'Contact', {
+          content_name: locale === 'es' ? COURSE.name_es : COURSE.name_en,
+          contact_method: a.href.includes('wa.me') ? 'WhatsApp' : 'InternalCTA',
+          source: 'LP',
+          course_slug: COURSE.slug
+        });
+      }, true);
+
+      // Pass through UTMs to WA link if user came with them
+      function withUTM(href) {
+        try {
+          const u = new URL(href, location.origin);
+          const src = new URLSearchParams(location.search);
+          ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
+            if (src.get(k)) u.searchParams.set(k, src.get(k));
+          });
+          return u.toString();
+        } catch (_) { return href; }
+      }
+      ['cta-reserve-offer','cta-reserve-bottom'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute('href', withUTM(el.getAttribute('href')));
+      });
+
+      // WhatsApp form submit -> Lead
+      document.addEventListener('submit', function (e) {
+        const form = e.target;
+        if (!form || (form.id !== 'whatsapp-form' && form.dataset.role !== 'whatsapp-lead')) return;
+        if (!window.fbq) return;
+        const code   = document.getElementById('country-code')?.value || '';
+        const course = document.getElementById('course')?.value || COURSE.slug;
+        window.fbq('track', 'Lead', {
+          content_name: course,
+          lead_type: 'WhatsApp',
+          country_code: code
+        });
+        window.fbq('trackCustom', `Lead_${course}`);
+      }, true);
+    })();
+  </script>
 </BaseLayout>

@@ -1,0 +1,470 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WhatsAppLeadForm from "../../components/WhatsAppLeadForm.astro";
+import ModalWhatsAppLeadFormES from "../../components/ModalWhatsAppLeadFormES.astro";
+
+const lang = "es";
+const title = "Python Quest — Aprende a programar creando minijuegos (Presencial u Online) | Kidslab";
+const description = "Curso en vivo de 4 meses donde los chicos aprenden Python paso a paso creando minijuegos. Grupos pequeños (máx. 10), mentor cercano, $75/mes. Presencial los sábados u Online martes y miércoles.";
+
+const siteUrl = "https://kidslab.lat/es/python-quest"; // canónico ES
+const ogImage = "/assets/python-quest-og.png";
+
+// WhatsApp CTA
+const WA_NUMBER = "50378258472";
+const WA_TEXT = encodeURIComponent(
+  "Hola Kidslab 👋 Estoy interesado/a en el curso Python Quest para mi hijo(a). ¿Me pueden dar más información?"
+);
+const waLink =
+  `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}` +
+  "&utm_source=website&utm_medium=lp&utm_campaign=pythonquest_aug25";
+---
+
+<BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
+
+  <!-- HEAD EXTRAS -->
+  <Fragment slot="head">
+    <link rel="canonical" href={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" as="image" href="/assets/python-quest-hero.png" />
+
+    <!-- Org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kidslab LATAM",
+        "url": "https://kidslab.lat",
+        "logo": "https://kidslab.lat/assets/branding/logo.svg",
+        "sameAs": ["https://www.instagram.com/kidslab.lat","https://www.facebook.com/kidslab.lat"]
+      }
+    </script>
+
+    <!-- Course JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Python Quest — Aprende a programar creando minijuegos",
+        "description": "Curso en vivo de 4 meses donde niños y adolescentes aprenden Python creando minijuegos. Grupos pequeños (máx. 10). Presencial los sábados u Online martes y miércoles.",
+        "provider": { "@type": "Organization", "name": "Kidslab LATAM", "sameAs": "https://kidslab.lat" },
+        "audience": { "@type": "EducationalAudience", "educationalRole": "student" },
+        "inLanguage": "es"
+      }
+    </script>
+  </Fragment>
+
+  <!-- Franja superior para coherencia visual -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 h-32 md:h-36 bg-purple-50 -z-10"></div>
+
+  <!-- HERO -->
+  <section id="hero-python" class="hero relative overflow-hidden bg-purple-50 pt-1 md:pt-1">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+
+        <!-- IZQUIERDA -->
+        <div>
+          <!-- Tira de confianza -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur text-kidslab-morado text-xs md:text-sm font-semibold shadow-sm">
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:check-decagram" class="text-green-600" aria-hidden="true"></iconify-icon> Clases En Vivo
+            </span>
+            <span class="opacity-40">•</span>
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:account-group" class="text-green-600" aria-hidden="true"></iconify-icon> Grupos pequeños
+            </span>
+            <span class="opacity-40">•</span>
+            <span class="inline-flex items-center gap-1">
+              <iconify-icon icon="mdi:laptop" class="text-green-600" aria-hidden="true"></iconify-icon> Presencial u Online
+            </span>
+          </div>
+
+          <!-- Imagen SOLO móvil -->
+          <div class="mt-5 md:hidden relative">
+            <div class="absolute -inset-3 -z-10 blur-2xl opacity-25 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-3xl"></div>
+            <img
+              src="/assets/python-quest-hero.png"
+              alt="Niño programando con el pulpo mentor de Kidslab en Python Quest"
+              class="mx-auto w-3/4 max-w-xs h-auto max-h-56 object-contain select-none"
+              loading="eager" width="800" height="600"
+            />
+          </div>
+
+          <!-- Titular -->
+          <h1 class="mt-3 font-lemon text-3xl md:text-5xl lg:text-6xl leading-tight text-kidslab-morado text-center md:text-left">
+            <span class="block">Python Quest: aprende a programar creando minijuegos</span>
+          </h1>
+
+          <!-- Cuerpo -->
+          <p class="mt-4 text-lg md:text-xl text-gray-800 max-w-xl">
+            Una aventura de 4 meses donde los chicos construyen minijuegos reales mientras aprenden Python paso a paso — con un mentor cercano y un grupo seguro y amable.
+          </p>
+
+          <!-- Oferta + CTA -->
+          <div class="mt-6 max-w-md">
+            <div class="bg-white border-2 border-orange-400 rounded-xl p-5 shadow-md text-center">
+              <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-1">
+                Mensualidad
+              </p>
+              <p class="text-3xl font-extrabold text-orange-700">
+                $75 <span class="text-lg font-bold">USD / mes</span>
+              </p>
+              <p class="text-sm text-gray-800 mt-1">
+                <strong>Duración:</strong> 4 meses · <strong>Grupos:</strong> máx. 10 estudiantes
+              </p>
+              <p class="text-sm text-gray-800">
+                <strong>Horarios:</strong> Presencial sábados • Online martes y miércoles
+              </p>
+
+              <div class="mt-5">
+                <ModalWhatsAppLeadFormES>
+                  <a
+                    id="cta-reserve-offer"
+                    href={waLink}
+                    class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold text-lg hover:opacity-95 transition inline-flex items-center gap-2"
+                    aria-label="Reserva tu cupo por WhatsApp"
+                    target="_blank" rel="noopener"
+                  >
+                    <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+                    Reserva tu cupo por WhatsApp
+                  </a>
+                </ModalWhatsAppLeadFormES>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /IZQUIERDA -->
+
+        <!-- DERECHA (desktop/tablet) -->
+        <div class="relative hidden md:block">
+          <div class="absolute -inset-6 -z-10 blur-3xl opacity-30 bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[3rem]"></div>
+          <img
+            src="/assets/python-quest-hero.png"
+            alt="Niño programando con el pulpo mentor de Kidslab en Python Quest"
+            class="w-full h-auto max-h-[520px] object-contain select-none"
+            loading="eager" width="1200" height="800"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA PADRES (confianza) -->
+  <section id="parents" class="bg-white py-20 px-6">
+    <div class="flex justify-center -mt-6 mb-6 pointer-events-none">
+      <img src="/assets/pulpo-ai.png" alt="" class="w-28 h-auto md:w-40 lg:w-48 animate-float-up drop-shadow" loading="lazy" />
+    </div>
+
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-lemon text-kidslab-naranja font-bold mb-4 flex items-center justify-center gap-2">
+        <iconify-icon icon="ph:sparkle-fill" class="text-kidslab-naranja text-2xl md:text-3xl" aria-hidden="true"></iconify-icon>
+        Un espacio seguro y guiado donde la tecnología se aprende con empatía.
+      </h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        Primero va la conexión humana. Aprenden código, pensamiento lógico y creatividad — siempre con un mentor cercano, metas claras y trabajo en equipo amable.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:shield-check" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Seguro y supervisado</h3>
+        <p class="text-gray-600 text-sm">Clases en vivo, guía cercana y cero espacios tóxicos.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:brain" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Lógica + creatividad</h3>
+        <p class="text-gray-600 text-sm">Combinamos algoritmos con narrativa, arte y diseño de juegos.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:users-three" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Grupos pequeños</h3>
+        <p class="text-gray-600 text-sm">Máximo 10 estudiantes — todos reciben atención y feedback.</p>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+        <iconify-icon icon="ph:rocket-launch" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+        <h3 class="font-bold text-lg mb-2">Habilidades de futuro</h3>
+        <p class="text-gray-600 text-sm">Base sólida en Python (lenguaje de la IA) para el mundo de mañana.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA (ruta Python) -->
+  <section class="bg-purple-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-kidslab-morado font-display text-center">
+        De la primera línea de código a minijuegos jugables
+      </h2>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">1</span>
+          <iconify-icon icon="ph:code" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Fundamentos de Python</h3>
+          <p class="text-gray-700 text-sm">Variables, entrada/salida y lógica básica.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">2</span>
+          <iconify-icon icon="ph:git-commit" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Decisiones y ciclos</h3>
+          <p class="text-gray-700 text-sm">If/else, while/for — el corazón de las reglas del juego.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">3</span>
+          <iconify-icon icon="ph:function" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Funciones y datos</h3>
+          <p class="text-gray-700 text-sm">Acciones reutilizables, listas y puntuaciones.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">4</span>
+          <iconify-icon icon="ph:game-controller" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Minijuego #1</h3>
+          <p class="text-gray-700 text-sm">Tu primer proyecto jugable.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">5</span>
+          <iconify-icon icon="ph:clock-countdown" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Tiempo y eventos</h3>
+          <p class="text-gray-700 text-sm">Interacciones, dificultad y pulido.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">6</span>
+          <iconify-icon icon="ph:squares-four" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Elementos de diseño</h3>
+          <p class="text-gray-700 text-sm">Gráficos/feedback simples para diversión del jugador.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">7</span>
+          <iconify-icon icon="ph:star" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Minijuego #2</h3>
+          <p class="text-gray-700 text-sm">Un segundo proyecto con nuevas mecánicas.</p>
+        </div>
+        <div class="relative bg-white rounded-xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1 transition group">
+          <span class="absolute top-3 right-3 inline-flex items-center justify-center w-8 h-8 rounded-full bg-kidslab-amarillo text-gray-900 text-sm font-bold">8</span>
+          <iconify-icon icon="ph:megaphone-simple" class="text-5xl text-kidslab-morado mb-4" aria-hidden="true"></iconify-icon>
+          <h3 class="font-bold text-lg mb-1">Show &amp; Share</h3>
+          <p class="text-gray-700 text-sm">Muestra familiar de sus minijuegos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display tracking-tight">Para padres</h3>
+        <ul class="mt-4 space-y-2 leading-relaxed">
+          <li>Clases supervisadas con docentes reales y grupos pequeños.</li>
+          <li>Habilidades prácticas de Python que aplican más allá de la clase.</li>
+          <li>Estructura clara, avance visible y una comunidad amable.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display tracking-tight">Para chicos</h3>
+        <ul class="mt-4 space-y-2 leading-relaxed">
+          <li>Construyen minijuegos para jugar y compartir.</li>
+          <li>Desarrollan pensamiento lógico, creatividad y confianza.</li>
+          <li>Aprenden Python — el lenguaje detrás de la tecnología actual.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="bg-purple-50 py-12">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h3 class="text-2xl font-bold text-kidslab-morado mb-6">Lo que dicen los padres</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <blockquote class="bg-white rounded-lg p-4 shadow">
+          <p class="text-gray-800 italic">“Mi hija por fin disfruta programar — nos muestra cada minijuego.”</p>
+          <footer class="mt-2 text-sm text-gray-600">— Marcela A., San Salvador</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg p-4 shadow">
+          <p class="text-gray-800 italic">“Los grupos pequeños marcan la diferencia. Recibe ayuda real.”</p>
+          <footer class="mt-2 text-sm text-gray-600">— José R., Santa Tecla</footer>
+        </blockquote>
+        <blockquote class="bg-white rounded-lg p-4 shadow">
+          <p class="text-gray-800 italic">“Kidslab es cálido y profesional — justo lo que buscábamos.”</p>
+          <footer class="mt-2 text-sm text-gray-600">— Andrea M., Antiguo Cuscatlán</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-kidslab-morado font-display mb-6">Preguntas frecuentes</h3>
+      <div class="space-y-5">
+        <details class="group rounded-lg p-4 bg-purple-50">
+          <summary class="cursor-pointer font-semibold text-kidslab-morado">¿Necesitan experiencia previa?</summary>
+          <p class="mt-2 text-gray-800">No. Python Quest inicia desde cero y construye confianza paso a paso.</p>
+        </details>
+        <details class="group rounded-lg p-4 bg-purple-50">
+          <summary class="cursor-pointer font-semibold text-kidslab-morado">¿Cuántos estudiantes hay por grupo?</summary>
+          <p class="mt-2 text-gray-800">Máximo 10 por grupo para mantener la guía personalizada y efectiva.</p>
+        </details>
+        <details class="group rounded-lg p-4 bg-purple-50">
+          <summary class="cursor-pointer font-semibold text-kidslab-morado">¿Es online o presencial?</summary>
+          <p class="mt-2 text-gray-800">Ambas opciones: Presencial los sábados u Online martes y miércoles (sesiones en vivo).</p>
+        </details>
+      </div>
+    </div>
+
+    <!-- JSON-LD FAQ -->
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"¿Necesitan experiencia previa?","acceptedAnswer":{"@type":"Answer","text":"No. Python Quest inicia desde cero y construye confianza paso a paso."}},
+          {"@type":"Question","name":"¿Cuántos estudiantes hay por grupo?","acceptedAnswer":{"@type":"Answer","text":"Máximo 10 por grupo para mantener la guía personalizada y efectiva."}},
+          {"@type":"Question","name":"¿Es online o presencial?","acceptedAnswer":{"@type":"Answer","text":"Ambas opciones: Presencial los sábados u Online martes y miércoles (sesiones en vivo)."}}
+        ]
+      }
+    </script>
+  </section>
+
+  <!-- NOTA PARA PADRES -->
+  <section class="bg-orange-50 border-t border-orange-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-orange-700 font-display">
+        “Quiero que mi hijo aprenda tecnología con empatía — no solo pantallas.”
+      </h3>
+      <p class="mt-3 text-gray-800">
+        En Kidslab mezclamos lógica con creatividad, para que aprendan a pensar, construir y compartir con amabilidad.
+        Python Quest es su primer paso seguro al código real — y a un futuro donde la tecnología sirve a las personas.
+        <span class="block mt-2 font-semibold">— Equipo Kidslab</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="bg-gradient-to-b from-purple-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <div class="grid md:grid-cols-[1.1fr_.9fr] items-center gap-10">
+        <div class="text-center md:text-left">
+          <h2 class="text-3xl md:text-4xl font-bold text-kidslab-morado font-display tracking-tight">
+            Los cupos vuelan — grupos limitados a 10 estudiantes
+          </h2>
+          <p class="mt-2 text-sm text-gray-700">
+            Elige tu modalidad: <strong>Presencial sábados</strong> u <strong>Online martes y miércoles</strong>.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+            <ModalWhatsAppLeadFormES>
+              <a
+                id="cta-reserve-bottom"
+                href={waLink}
+                class="bg-kidslab-naranja text-white px-6 py-3 rounded-full font-bold hover:opacity-95 transition inline-flex items-center gap-2"
+                aria-label="Reserva tu cupo por WhatsApp"
+                target="_blank" rel="noopener"
+              >
+                <iconify-icon icon="ph:rocket-launch" class="text-white text-xl"></iconify-icon>
+                Reserva tu cupo por WhatsApp
+              </a>
+            </ModalWhatsAppLeadFormES>
+            <a
+              id="cta-parent-info-bottom"
+              href="#parents"
+              class="inline-flex items-center gap-2 border-2 border-kidslab-celeste text-kidslab-celeste px-6 py-3 rounded-full font-bold hover:bg-kidslab-celeste hover:text-white transition"
+              aria-label="Información para padres"
+            >
+              <iconify-icon icon="ph:chat-circle-dots" class="text-kidslab-celeste text-xl md:text-lg"></iconify-icon>
+              Información para padres
+            </a>
+          </div>
+
+          <div class="mt-4 flex items-center gap-4 justify-center md:justify-start text-kidslab-amarillo/80">
+            <iconify-icon icon="ph:sparkle" class="text-2xl" aria-hidden="true"></iconify-icon>
+            <span class="text-sm text-gray-600">Práctico • Guiado • Amigable para familias</span>
+            <iconify-icon icon="ph:sparkle" class="text-2xl" aria-hidden="true"></iconify-icon>
+          </div>
+        </div>
+
+        <div class="relative flex justify-center md:justify-end">
+          <div class="absolute -inset-4 -z-10 blur-2xl opacity-25 animate-float-up bg-gradient-to-tr from-kidslab-morado/20 via-kidslab-amarillo/20 to-kidslab-celeste/20 rounded-[2rem]"></div>
+          <div class="relative">
+            <img src="/assets/pulpo-ai.png" alt="Mascota pulpo de Kidslab animando a reservar"
+                 class="w-40 sm:w-48 md:w-56 lg:w-64 h-auto animate-float-up drop-shadow" loading="lazy" width="256" height="256" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTIL: Tracking -->
+  <script is:inline>
+    (function () {
+      const COURSE = {
+        name_en: 'Python Quest',
+        name_es: 'Python Quest',
+        slug: 'python-quest',
+        category: 'Coding'
+      };
+      const locale = location.pathname.startsWith('/es') ? 'es' : 'en';
+
+      document.addEventListener('DOMContentLoaded', function () {
+        if (window.fbq) {
+          window.fbq('track', 'ViewContent', {
+            content_name: locale === 'es' ? COURSE.name_es : COURSE.name_en,
+            content_category: COURSE.category,
+            content_ids: [COURSE.slug],
+            content_type: 'course',
+            locale
+          });
+          window.fbq('trackCustom', `VC_${COURSE.slug}`, { locale });
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest('a[href*="wa.me"], a#cta-reserve-offer, a#cta-reserve-bottom');
+        if (!a || !window.fbq) return;
+        window.fbq('track', 'Contact', {
+          content_name: locale === 'es' ? COURSE.name_es : COURSE.name_en,
+          contact_method: a.href.includes('wa.me') ? 'WhatsApp' : 'InternalCTA',
+          source: 'LP',
+          course_slug: COURSE.slug
+        });
+      }, true);
+
+      // UTM passthrough
+      function withUTM(href) {
+        try {
+          const u = new URL(href, location.origin);
+          const src = new URLSearchParams(location.search);
+          ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
+            if (src.get(k)) u.searchParams.set(k, src.get(k));
+          });
+          return u.toString();
+        } catch (_) { return href; }
+      }
+      ['cta-reserve-offer','cta-reserve-bottom'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute('href', withUTM(el.getAttribute('href')));
+      });
+
+      // Lead por formulario (si el modal ES expone form)
+      document.addEventListener('submit', function (e) {
+        const form = e.target;
+        if (!form || (form.id !== 'whatsapp-form' && form.dataset.role !== 'whatsapp-lead')) return;
+        if (!window.fbq) return;
+        const code   = document.getElementById('country-code')?.value || '';
+        const course = document.getElementById('course')?.value || COURSE.slug;
+        window.fbq('track', 'Lead', {
+          content_name: course,
+          lead_type: 'WhatsApp',
+          country_code: code
+        });
+        window.fbq('trackCustom', `Lead_${course}`);
+      }, true);
+    })();
+  </script>
+</BaseLayout>
