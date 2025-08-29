@@ -7,8 +7,10 @@ const lang = "en";
 const title = "Give Your Teen a Safe Place to Explore AI — Guided, Creative, Human | Kidslab";
 const description = "An 8-session, live online course where teens (13–17) build a friendly AI companion — learning to use technology safely, ethically, and with confidence, guided by caring instructors.";
 
-const siteUrl = "https://kidslab.lat/en/ai-robot-friend"; // canonical for EN
-const ogImage = "/assets/ai-robot-friend-og.png";
+const ORIGIN   = "https://kidslab.lat";
+const siteUrl  = `${ORIGIN}/en/ai-robot-friend`;
+const ogPath   = "/assets/ai-robot-friend-og.png"; // 1200×630 PNG or JPG
+const ogImage  = `${ORIGIN}${ogPath}`;
 ---
 
 <BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
@@ -16,11 +18,28 @@ const ogImage = "/assets/ai-robot-friend-og.png";
   <!-- HEAD EXTRAS -->
   <Fragment slot="head">
     <link rel="canonical" href={siteUrl} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kidslab LATAM" />
+  <meta property="og:url" content={siteUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:secure_url" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- (Optional) alt text -->
+  <meta property="og:image:alt" content="Teen with a friendly AI helper in Kidslab style" />
 
     <!-- Perf: preload the image you actually render -->
     <link rel="preload" as="image" href="/assets/ai-friend-hero-transparent.png" />
