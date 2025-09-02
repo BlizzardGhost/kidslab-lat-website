@@ -6,8 +6,11 @@ import ModalWhatsAppLeadFormES from "../../components/ModalWhatsAppLeadFormES.as
 const lang = "es";
 const title = "Dale a tu hijo un lugar seguro para explorar la IA — Guiado, creativo y humano | Kidslab";
 const description = "Curso en vivo de 8 sesiones donde adolescentes (13–17) crean un compañero de IA amigable — aprendiendo a usar la tecnología de forma segura, ética y con confianza, guiados por instructores cercanos.";
-const ogImage = "/assets/ai-robot-friend-og.png";
-const siteUrl = "https://kidslab.lat/es/mi-primer-amigo-robot"; // canónico ES
+
+const ORIGIN   = "https://kidslab.lat";
+const siteUrl  = `${ORIGIN}/es/mi-primer-amigo-robot`;
+const ogPath   = "/assets/ai-robot-friend-og.png"; // 1200×630 PNG or JPG
+const ogImage  = `${ORIGIN}${ogPath}`;
 ---
 
 <BaseLayout lang={lang} title={title} description={description} ogImage={ogImage}>
